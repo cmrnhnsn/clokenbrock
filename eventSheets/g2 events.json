@@ -1,0 +1,1626 @@
+{
+	"name": "G2 Events",
+	"events": [
+		{
+			"eventType": "include",
+			"includeSheet": "EventMain"
+		},
+		{
+			"eventType": "variable",
+			"name": "KitchenClick",
+			"type": "number",
+			"initialValue": "100",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 851959121674932
+		},
+		{
+			"eventType": "variable",
+			"name": "selAppliance",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "Selects the appliance to make noise",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 454014700967650
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-start-of-layout",
+					"objectClass": "System",
+					"sid": 662605680371014
+				}
+			],
+			"actions": [
+				{
+					"id": "set-layer-visible",
+					"objectClass": "System",
+					"sid": 936496881843422,
+					"parameters": {
+						"layer": "1",
+						"visibility": "visible"
+					}
+				},
+				{
+					"id": "set-layer-visible",
+					"objectClass": "System",
+					"sid": 524271068163019,
+					"parameters": {
+						"layer": "2",
+						"visibility": "visible"
+					}
+				},
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 546540471871746,
+					"parameters": {
+						"variable": "TimerIdeal",
+						"value": "floor(random(5, 30))"
+					}
+				},
+				{
+					"id": "wait-for-previous-actions",
+					"objectClass": "System",
+					"sid": 715111781511387
+				},
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 637943833588431,
+					"parameters": {
+						"variable": "Timer",
+						"value": "TimerIdeal"
+					}
+				},
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 170187255574181,
+					"parameters": {
+						"variable": "TimerThreshold",
+						"value": "TimerIdeal*0.2"
+					}
+				},
+				{
+					"id": "set-animation",
+					"objectClass": "Eyes",
+					"sid": 640312754466031,
+					"parameters": {
+						"animation": "\"sleep\"",
+						"from": "beginning"
+					}
+				},
+				{
+					"id": "set-instvar-value",
+					"objectClass": "Eyes",
+					"sid": 514937788120355,
+					"parameters": {
+						"instance-variable": "hp",
+						"value": "2"
+					}
+				},
+				{
+					"id": "set-text",
+					"objectClass": "KitchenGoal",
+					"sid": 780226003561471,
+					"parameters": {
+						"text": "\"You Have \" &TimerIdeal"
+					}
+				},
+				{
+					"id": "append-text",
+					"objectClass": "KitchenGoal",
+					"sid": 186120901060928,
+					"parameters": {
+						"text": "\" seconds here. Spend too much or too little time and you'll be caught ... with extreme prejudice.\" "
+					}
+				},
+				{
+					"id": "set-text",
+					"objectClass": "devisActive",
+					"sid": 295533588684567,
+					"parameters": {
+						"text": "\"timerThreshold: \" & TimerThreshold"
+					}
+				}
+			],
+			"sid": 422262200436800
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-object-clicked",
+					"objectClass": "Mouse",
+					"sid": 439679066163186,
+					"parameters": {
+						"mouse-button": "left",
+						"click-type": "clicked",
+						"object-clicked": "StartStop"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-layer-visible",
+					"objectClass": "System",
+					"sid": 395011538332958,
+					"parameters": {
+						"layer": "2",
+						"visibility": "invisible"
+					}
+				}
+			],
+			"sid": 586139785201923,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-animation-playing",
+							"objectClass": "StartStop",
+							"sid": 140124630384303,
+							"parameters": {
+								"animation": "\"Exit\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 148767546722452,
+							"parameters": {
+								"variable": "IsActive",
+								"value": "3"
+							}
+						},
+						{
+							"id": "stop",
+							"objectClass": "Audio",
+							"sid": 136331356717847,
+							"parameters": {
+								"tag": "\"Music\""
+							}
+						},
+						{
+							"id": "go-to-layout",
+							"objectClass": "System",
+							"sid": 461892378892696,
+							"parameters": {
+								"layout": "Score"
+							}
+						}
+					],
+					"sid": 546312869779755,
+					"disabled": true
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-animation-playing",
+							"objectClass": "StartStop",
+							"sid": 567034700833253,
+							"parameters": {
+								"animation": "\"Start\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-position",
+							"objectClass": "enterButtons",
+							"sid": 522580290248614,
+							"parameters": {
+								"x": "142",
+								"y": "120"
+							}
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "enterButtons",
+							"sid": 318195452999467,
+							"parameters": {
+								"visibility": "visible"
+							}
+						},
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 276901061630960,
+							"parameters": {
+								"seconds": "0.1"
+							}
+						},
+						{
+							"id": "set-animation",
+							"objectClass": "StartStop",
+							"sid": 583320931037287,
+							"parameters": {
+								"animation": "\"Exit\"",
+								"from": "beginning"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 387525658943295,
+							"parameters": {
+								"variable": "IsActive",
+								"value": "1"
+							}
+						},
+						{
+							"id": "play",
+							"objectClass": "Audio",
+							"sid": 658255985466183,
+							"parameters": {
+								"audio-file": "Metronome 2",
+								"loop": "not-looping",
+								"volume": "-15",
+								"tag-optional": "\"music\""
+							}
+						}
+					],
+					"sid": 448850051874636
+				}
+			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-object-clicked",
+					"objectClass": "Mouse",
+					"sid": 819296702103440,
+					"parameters": {
+						"mouse-button": "left",
+						"click-type": "clicked",
+						"object-clicked": "enterButtons"
+					}
+				}
+			],
+			"actions": [],
+			"sid": 457830042243805,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-animation-playing",
+							"objectClass": "StartStop",
+							"sid": 821561764479822,
+							"parameters": {
+								"animation": "\"Exit\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 174648983417999,
+							"parameters": {
+								"variable": "IsActive",
+								"value": "3"
+							}
+						},
+						{
+							"id": "stop",
+							"objectClass": "Audio",
+							"sid": 669855613967825,
+							"parameters": {
+								"tag": "\"Music\""
+							}
+						},
+						{
+							"id": "go-to-layout",
+							"objectClass": "System",
+							"sid": 148922930940072,
+							"parameters": {
+								"layout": "Score"
+							}
+						}
+					],
+					"sid": 579878580006157
+				}
+			]
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Hotspot Appliance Select",
+			"description": "Controls the selection of the active HotSpot",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "every-x-seconds",
+							"objectClass": "System",
+							"sid": 538219841278598,
+							"parameters": {
+								"interval-seconds": "5"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 136096296499225,
+					"children": [
+						{
+							"eventType": "comment",
+							"text": "Stove Control"
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 569288464151609,
+									"parameters": {
+										"variable": "IsActive",
+										"comparison": 0,
+										"value": "1"
+									}
+								},
+								{
+									"id": "pick-by-unique-id",
+									"objectClass": "Hotspot",
+									"sid": 566218076371901,
+									"parameters": {
+										"unique-id": "20"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Hotspot",
+									"sid": 146174086908826,
+									"parameters": {
+										"instance-variable": "Active",
+										"value": "floor(random(1, 4))"
+									}
+								}
+							],
+							"sid": 267820785261126
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 229966202104098,
+									"parameters": {
+										"variable": "IsActive",
+										"comparison": 0,
+										"value": "1"
+									}
+								},
+								{
+									"id": "pick-by-unique-id",
+									"objectClass": "Hotspot",
+									"sid": 476694212113077,
+									"parameters": {
+										"unique-id": "20"
+									}
+								},
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Hotspot",
+									"sid": 177941580876678,
+									"parameters": {
+										"instance-variable": "Active",
+										"comparison": 0,
+										"value": "1"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation",
+									"objectClass": "Hotspot",
+									"sid": 290587166280895,
+									"parameters": {
+										"animation": "\"StoveActive\"",
+										"from": "beginning"
+									}
+								},
+								{
+									"id": "set-animation",
+									"objectClass": "smoke",
+									"sid": 875324030951053,
+									"parameters": {
+										"animation": "\"build\"",
+										"from": "beginning"
+									}
+								},
+								{
+									"id": "play",
+									"objectClass": "Audio",
+									"sid": 576753203938052,
+									"parameters": {
+										"audio-file": "Stove",
+										"loop": "not-looping",
+										"volume": "-10",
+										"tag-optional": "\"Stove\""
+									}
+								},
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 377411018120892,
+									"parameters": {
+										"seconds": "4"
+									}
+								},
+								{
+									"id": "set-animation",
+									"objectClass": "smoke",
+									"sid": 738508480141095,
+									"parameters": {
+										"animation": "\"blank\"",
+										"from": "beginning"
+									}
+								},
+								{
+									"id": "set-animation",
+									"objectClass": "Hotspot",
+									"sid": 165037536572837,
+									"parameters": {
+										"animation": "\"StoveBlank\"",
+										"from": "beginning"
+									}
+								},
+								{
+									"id": "stop",
+									"objectClass": "Audio",
+									"sid": 788630599077777,
+									"parameters": {
+										"tag": "\"Stove\""
+									}
+								}
+							],
+							"sid": 327069994066496
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 194202227359144,
+									"parameters": {
+										"variable": "IsActive",
+										"comparison": 0,
+										"value": "1"
+									}
+								},
+								{
+									"id": "pick-by-unique-id",
+									"objectClass": "Hotspot",
+									"sid": 946293545700342,
+									"parameters": {
+										"unique-id": "20"
+									}
+								},
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Hotspot",
+									"sid": 265288095393556,
+									"parameters": {
+										"instance-variable": "Active",
+										"comparison": 4,
+										"value": "1"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation",
+									"objectClass": "Hotspot",
+									"sid": 902386299394963,
+									"parameters": {
+										"animation": "\"StoveInactive\"",
+										"from": "beginning"
+									}
+								},
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 848028164506778,
+									"parameters": {
+										"seconds": "4"
+									}
+								},
+								{
+									"id": "set-animation",
+									"objectClass": "Hotspot",
+									"sid": 670933857886580,
+									"parameters": {
+										"animation": "\"StoveBlank\"",
+										"from": "beginning"
+									}
+								}
+							],
+							"sid": 507866090597027
+						},
+						{
+							"eventType": "comment",
+							"text": "Microwave Control"
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 962406671523480,
+									"parameters": {
+										"variable": "IsActive",
+										"comparison": 0,
+										"value": "1"
+									}
+								},
+								{
+									"id": "pick-by-unique-id",
+									"objectClass": "Hotspot",
+									"sid": 979818227849073,
+									"parameters": {
+										"unique-id": "31"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Hotspot",
+									"sid": 937179432044330,
+									"parameters": {
+										"instance-variable": "Active",
+										"value": "floor(random(1, 4))"
+									}
+								}
+							],
+							"sid": 672283086896365
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 790898537047240,
+									"parameters": {
+										"variable": "IsActive",
+										"comparison": 0,
+										"value": "1"
+									}
+								},
+								{
+									"id": "pick-by-unique-id",
+									"objectClass": "Hotspot",
+									"sid": 693507861077413,
+									"parameters": {
+										"unique-id": "31"
+									}
+								},
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Hotspot",
+									"sid": 729793152919434,
+									"parameters": {
+										"instance-variable": "Active",
+										"comparison": 0,
+										"value": "1"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation",
+									"objectClass": "Hotspot",
+									"sid": 126275801002454,
+									"parameters": {
+										"animation": "\"MicrowaveActive\"",
+										"from": "beginning"
+									}
+								},
+								{
+									"id": "set-animation",
+									"objectClass": "Rays",
+									"sid": 227656189014478,
+									"parameters": {
+										"animation": "\"glowing\"",
+										"from": "beginning"
+									}
+								},
+								{
+									"id": "play",
+									"objectClass": "Audio",
+									"sid": 468694003111251,
+									"parameters": {
+										"audio-file": "Microwave",
+										"loop": "not-looping",
+										"volume": "0",
+										"tag-optional": "\"Microwave\""
+									}
+								},
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 815348314571521,
+									"parameters": {
+										"seconds": "4"
+									}
+								},
+								{
+									"id": "set-animation",
+									"objectClass": "Hotspot",
+									"sid": 438894216447018,
+									"parameters": {
+										"animation": "\"MicrowaveBlank\"",
+										"from": "beginning"
+									}
+								},
+								{
+									"id": "set-animation",
+									"objectClass": "Rays",
+									"sid": 530157001746053,
+									"parameters": {
+										"animation": "\"blank\"",
+										"from": "beginning"
+									}
+								},
+								{
+									"id": "stop",
+									"objectClass": "Audio",
+									"sid": 580984271555261,
+									"parameters": {
+										"tag": "\"Microwave\""
+									}
+								}
+							],
+							"sid": 483479296248147
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 188428735960229,
+									"parameters": {
+										"variable": "IsActive",
+										"comparison": 0,
+										"value": "1"
+									}
+								},
+								{
+									"id": "pick-by-unique-id",
+									"objectClass": "Hotspot",
+									"sid": 849917098363630,
+									"parameters": {
+										"unique-id": "31"
+									}
+								},
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Hotspot",
+									"sid": 655506325596257,
+									"parameters": {
+										"instance-variable": "Active",
+										"comparison": 4,
+										"value": "1"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation",
+									"objectClass": "Hotspot",
+									"sid": 939901702596073,
+									"parameters": {
+										"animation": "\"MicrowaveInactive\"",
+										"from": "beginning"
+									}
+								},
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 468482936108826,
+									"parameters": {
+										"seconds": "4"
+									}
+								},
+								{
+									"id": "set-animation",
+									"objectClass": "Hotspot",
+									"sid": 365322956768859,
+									"parameters": {
+										"animation": "\"MicrowaveBlank\"",
+										"from": "beginning"
+									}
+								}
+							],
+							"sid": 672556574467548
+						},
+						{
+							"eventType": "comment",
+							"text": "Fridge Control"
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 770739358949116,
+									"parameters": {
+										"variable": "IsActive",
+										"comparison": 0,
+										"value": "1"
+									}
+								},
+								{
+									"id": "pick-by-unique-id",
+									"objectClass": "Hotspot",
+									"sid": 442528614345134,
+									"parameters": {
+										"unique-id": "32"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Hotspot",
+									"sid": 970067654120571,
+									"parameters": {
+										"instance-variable": "Active",
+										"value": "floor(random(1, 4))"
+									}
+								}
+							],
+							"sid": 684270311227352
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 935485138500809,
+									"parameters": {
+										"variable": "IsActive",
+										"comparison": 0,
+										"value": "1"
+									}
+								},
+								{
+									"id": "pick-by-unique-id",
+									"objectClass": "Hotspot",
+									"sid": 814703652139356,
+									"parameters": {
+										"unique-id": "32"
+									}
+								},
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Hotspot",
+									"sid": 594611994976144,
+									"parameters": {
+										"instance-variable": "Active",
+										"comparison": 0,
+										"value": "1"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation",
+									"objectClass": "Hotspot",
+									"sid": 736381469890556,
+									"parameters": {
+										"animation": "\"FridgeActive\"",
+										"from": "beginning"
+									}
+								},
+								{
+									"id": "play",
+									"objectClass": "Audio",
+									"sid": 206544954140224,
+									"parameters": {
+										"audio-file": "Fridge",
+										"loop": "not-looping",
+										"volume": "-5",
+										"tag-optional": "\"Fridge\""
+									}
+								},
+								{
+									"id": "set-animation",
+									"objectClass": "cubes",
+									"sid": 683153603645348,
+									"parameters": {
+										"animation": "\"cubing\"",
+										"from": "beginning"
+									}
+								},
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 862491752790257,
+									"parameters": {
+										"seconds": "4"
+									}
+								},
+								{
+									"id": "set-animation",
+									"objectClass": "Hotspot",
+									"sid": 648319489261559,
+									"parameters": {
+										"animation": "\"FridgeBlank\"",
+										"from": "beginning"
+									}
+								},
+								{
+									"id": "set-animation",
+									"objectClass": "cubes",
+									"sid": 835517795752842,
+									"parameters": {
+										"animation": "\"blank\"",
+										"from": "beginning"
+									}
+								},
+								{
+									"id": "stop",
+									"objectClass": "Audio",
+									"sid": 763125910197660,
+									"parameters": {
+										"tag": "\"Fridge\""
+									}
+								}
+							],
+							"sid": 759364605851068
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 518460434434147,
+									"parameters": {
+										"variable": "IsActive",
+										"comparison": 0,
+										"value": "1"
+									}
+								},
+								{
+									"id": "pick-by-unique-id",
+									"objectClass": "Hotspot",
+									"sid": 183301978854532,
+									"parameters": {
+										"unique-id": "32"
+									}
+								},
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Hotspot",
+									"sid": 623846830040113,
+									"parameters": {
+										"instance-variable": "Active",
+										"comparison": 4,
+										"value": "1"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation",
+									"objectClass": "Hotspot",
+									"sid": 320926374486377,
+									"parameters": {
+										"animation": "\"FridgeInactive\"",
+										"from": "beginning"
+									}
+								},
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 868766142740712,
+									"parameters": {
+										"seconds": "4"
+									}
+								},
+								{
+									"id": "set-animation",
+									"objectClass": "Hotspot",
+									"sid": 428793362461911,
+									"parameters": {
+										"animation": "\"FridgeBlank\"",
+										"from": "beginning"
+									}
+								}
+							],
+							"sid": 638457505916784
+						}
+					]
+				}
+			],
+			"sid": 876954979524459
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Scoring",
+			"description": "Controls for Scoring",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "comment",
+					"text": "STOVE SCORING"
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-object-clicked",
+							"objectClass": "Mouse",
+							"sid": 538966034528280,
+							"parameters": {
+								"mouse-button": "left",
+								"click-type": "clicked",
+								"object-clicked": "Hotspot"
+							}
+						},
+						{
+							"id": "pick-by-unique-id",
+							"objectClass": "Hotspot",
+							"sid": 120887100057762,
+							"parameters": {
+								"unique-id": "20"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 399075551167820,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-animation-playing",
+									"objectClass": "Hotspot",
+									"sid": 978399882251303,
+									"parameters": {
+										"animation": "\"StoveActive\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "add-to-eventvar",
+									"objectClass": "System",
+									"sid": 633906180134383,
+									"parameters": {
+										"variable": "KitchenClick",
+										"value": "1"
+									}
+								},
+								{
+									"id": "stop",
+									"objectClass": "Audio",
+									"sid": 318670325612407,
+									"parameters": {
+										"tag": "\"Stove\""
+									}
+								},
+								{
+									"id": "play",
+									"objectClass": "Audio",
+									"sid": 855128348306862,
+									"parameters": {
+										"audio-file": "goodMeow",
+										"loop": "not-looping",
+										"volume": "-20",
+										"tag-optional": "\"\""
+									}
+								},
+								{
+									"id": "set-animation",
+									"objectClass": "Hotspot",
+									"sid": 767077172150133,
+									"parameters": {
+										"animation": "\"StoveBlank\"",
+										"from": "beginning"
+									}
+								},
+								{
+									"id": "set-animation",
+									"objectClass": "smoke",
+									"sid": 249263744135297,
+									"parameters": {
+										"animation": "\"blank\"",
+										"from": "beginning"
+									}
+								}
+							],
+							"sid": 226147478353784
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-animation-playing",
+									"objectClass": "Hotspot",
+									"sid": 226218408009524,
+									"parameters": {
+										"animation": "\"StoveInactive\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "add-to-eventvar",
+									"objectClass": "System",
+									"sid": 851749326882746,
+									"parameters": {
+										"variable": "KitchenClick",
+										"value": "-30"
+									}
+								},
+								{
+									"id": "play",
+									"objectClass": "Audio",
+									"sid": 758001252689097,
+									"parameters": {
+										"audio-file": "badHiss",
+										"loop": "not-looping",
+										"volume": "-20",
+										"tag-optional": "\"Incorrect\""
+									}
+								},
+								{
+									"id": "subtract-from-instvar",
+									"objectClass": "Eyes",
+									"sid": 941708585214640,
+									"parameters": {
+										"instance-variable": "hp",
+										"value": "1"
+									}
+								}
+							],
+							"sid": 703160693468691
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-animation-playing",
+									"objectClass": "Hotspot",
+									"sid": 676381670803599,
+									"parameters": {
+										"animation": "\"StoveBlank\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "add-to-eventvar",
+									"objectClass": "System",
+									"sid": 745313385022160,
+									"parameters": {
+										"variable": "ClickScore",
+										"value": "0"
+									}
+								}
+							],
+							"sid": 365693024888720
+						}
+					]
+				},
+				{
+					"eventType": "comment",
+					"text": "MICROWAVE SCORING"
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-object-clicked",
+							"objectClass": "Mouse",
+							"sid": 723744524237013,
+							"parameters": {
+								"mouse-button": "left",
+								"click-type": "clicked",
+								"object-clicked": "Hotspot"
+							}
+						},
+						{
+							"id": "pick-by-unique-id",
+							"objectClass": "Hotspot",
+							"sid": 596378409841020,
+							"parameters": {
+								"unique-id": "31"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 781796852064732,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-animation-playing",
+									"objectClass": "Hotspot",
+									"sid": 760355237618417,
+									"parameters": {
+										"animation": "\"MicrowaveActive\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "add-to-eventvar",
+									"objectClass": "System",
+									"sid": 155424131876909,
+									"parameters": {
+										"variable": "KitchenClick",
+										"value": "1"
+									}
+								},
+								{
+									"id": "set-animation",
+									"objectClass": "smoke",
+									"sid": 650782999042437,
+									"parameters": {
+										"animation": "\"blank\"",
+										"from": "beginning"
+									}
+								},
+								{
+									"id": "stop",
+									"objectClass": "Audio",
+									"sid": 451650850032632,
+									"parameters": {
+										"tag": "\"Microwave\""
+									}
+								},
+								{
+									"id": "play",
+									"objectClass": "Audio",
+									"sid": 866135973384207,
+									"parameters": {
+										"audio-file": "goodMeow",
+										"loop": "not-looping",
+										"volume": "-20",
+										"tag-optional": "\"\""
+									}
+								},
+								{
+									"id": "set-animation",
+									"objectClass": "Rays",
+									"sid": 555355010534421,
+									"parameters": {
+										"animation": "\"blank\"",
+										"from": "beginning"
+									}
+								},
+								{
+									"id": "set-animation",
+									"objectClass": "Hotspot",
+									"sid": 710028627584377,
+									"parameters": {
+										"animation": "\"MicrowaveBlank\"",
+										"from": "beginning"
+									}
+								}
+							],
+							"sid": 399545133518356
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-animation-playing",
+									"objectClass": "Hotspot",
+									"sid": 274620802323401,
+									"parameters": {
+										"animation": "\"MicrowaveInactive\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "add-to-eventvar",
+									"objectClass": "System",
+									"sid": 823295278164209,
+									"parameters": {
+										"variable": "KitchenClick",
+										"value": "-30"
+									}
+								},
+								{
+									"id": "play",
+									"objectClass": "Audio",
+									"sid": 212471198284458,
+									"parameters": {
+										"audio-file": "badHiss",
+										"loop": "not-looping",
+										"volume": "-20",
+										"tag-optional": "\"Incorrect\""
+									}
+								},
+								{
+									"id": "subtract-from-instvar",
+									"objectClass": "Eyes",
+									"sid": 100648364424982,
+									"parameters": {
+										"instance-variable": "hp",
+										"value": "1"
+									}
+								}
+							],
+							"sid": 874932240225980
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-animation-playing",
+									"objectClass": "Hotspot",
+									"sid": 737985932219933,
+									"parameters": {
+										"animation": "\"MicrowaveBlank\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "add-to-eventvar",
+									"objectClass": "System",
+									"sid": 539259567378773,
+									"parameters": {
+										"variable": "ClickScore",
+										"value": "0"
+									}
+								}
+							],
+							"sid": 601235807405545
+						}
+					]
+				},
+				{
+					"eventType": "comment",
+					"text": "FRIDGE SCORING"
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-object-clicked",
+							"objectClass": "Mouse",
+							"sid": 697297947316064,
+							"parameters": {
+								"mouse-button": "left",
+								"click-type": "clicked",
+								"object-clicked": "Hotspot"
+							}
+						},
+						{
+							"id": "pick-by-unique-id",
+							"objectClass": "Hotspot",
+							"sid": 412186243429594,
+							"parameters": {
+								"unique-id": "32"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 765662649034543,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-animation-playing",
+									"objectClass": "Hotspot",
+									"sid": 452086704452136,
+									"parameters": {
+										"animation": "\"FridgeActive\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "add-to-eventvar",
+									"objectClass": "System",
+									"sid": 307494154155988,
+									"parameters": {
+										"variable": "KitchenClick",
+										"value": "1"
+									}
+								},
+								{
+									"id": "stop",
+									"objectClass": "Audio",
+									"sid": 924809174988834,
+									"parameters": {
+										"tag": "\"Fridge\""
+									}
+								},
+								{
+									"id": "play",
+									"objectClass": "Audio",
+									"sid": 650140948480204,
+									"parameters": {
+										"audio-file": "goodMeow",
+										"loop": "not-looping",
+										"volume": "-20",
+										"tag-optional": "\"\""
+									}
+								},
+								{
+									"id": "set-animation",
+									"objectClass": "Hotspot",
+									"sid": 417355985590731,
+									"parameters": {
+										"animation": "\"FridgeBlank\"",
+										"from": "beginning"
+									}
+								},
+								{
+									"id": "set-animation",
+									"objectClass": "cubes",
+									"sid": 135040413283199,
+									"parameters": {
+										"animation": "\"blank\"",
+										"from": "beginning"
+									}
+								}
+							],
+							"sid": 222041535659224
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-animation-playing",
+									"objectClass": "Hotspot",
+									"sid": 980548019029248,
+									"parameters": {
+										"animation": "\"FridgeInactive\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "add-to-eventvar",
+									"objectClass": "System",
+									"sid": 556673831242803,
+									"parameters": {
+										"variable": "KitchenClick",
+										"value": "-30"
+									}
+								},
+								{
+									"id": "play",
+									"objectClass": "Audio",
+									"sid": 230567480824428,
+									"parameters": {
+										"audio-file": "badHiss",
+										"loop": "not-looping",
+										"volume": "-20",
+										"tag-optional": "\"Incorrect\""
+									}
+								},
+								{
+									"id": "subtract-from-instvar",
+									"objectClass": "Eyes",
+									"sid": 464996706376552,
+									"parameters": {
+										"instance-variable": "hp",
+										"value": "1"
+									}
+								}
+							],
+							"sid": 977933664963105
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-animation-playing",
+									"objectClass": "Hotspot",
+									"sid": 591209738937349,
+									"parameters": {
+										"animation": "\"FridgeBlank\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "add-to-eventvar",
+									"objectClass": "System",
+									"sid": 382901780782894,
+									"parameters": {
+										"variable": "ClickScore",
+										"value": "0"
+									}
+								}
+							],
+							"sid": 827412714883596
+						}
+					]
+				}
+			],
+			"sid": 192555846961294
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "compare-instance-variable",
+					"objectClass": "Eyes",
+					"sid": 189266500075902,
+					"parameters": {
+						"instance-variable": "hp",
+						"comparison": 0,
+						"value": "2"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-animation",
+					"objectClass": "Eyes",
+					"sid": 839453853245931,
+					"parameters": {
+						"animation": "\"sleep\"",
+						"from": "beginning"
+					}
+				}
+			],
+			"sid": 846717018300418
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "compare-instance-variable",
+					"objectClass": "Eyes",
+					"sid": 731407817758715,
+					"parameters": {
+						"instance-variable": "hp",
+						"comparison": 0,
+						"value": "1"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-animation",
+					"objectClass": "Eyes",
+					"sid": 664005777262634,
+					"parameters": {
+						"animation": "\"stirring\"",
+						"from": "beginning"
+					}
+				}
+			],
+			"sid": 658660312853993
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "compare-instance-variable",
+					"objectClass": "Eyes",
+					"sid": 554021617318322,
+					"parameters": {
+						"instance-variable": "hp",
+						"comparison": 2,
+						"value": "1"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-animation",
+					"objectClass": "Eyes",
+					"sid": 701037095729915,
+					"parameters": {
+						"animation": "\"awake\"",
+						"from": "beginning"
+					}
+				},
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 445973700055751,
+					"parameters": {
+						"variable": "IsActive",
+						"value": "3"
+					}
+				},
+				{
+					"id": "wait",
+					"objectClass": "System",
+					"sid": 535315315841427,
+					"parameters": {
+						"seconds": "1.0"
+					}
+				},
+				{
+					"id": "wait",
+					"objectClass": "System",
+					"sid": 150896049227152,
+					"parameters": {
+						"seconds": "0.5"
+					}
+				},
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 882880668074444,
+					"parameters": {
+						"variable": "endState",
+						"value": "2"
+					}
+				},
+				{
+					"id": "go-to-layout",
+					"objectClass": "System",
+					"sid": 313027575171725,
+					"parameters": {
+						"layout": "Score"
+					}
+				},
+				{
+					"id": "stop",
+					"objectClass": "Audio",
+					"sid": 713665514203522,
+					"parameters": {
+						"tag": "\"Microwave\""
+					}
+				},
+				{
+					"id": "stop",
+					"objectClass": "Audio",
+					"sid": 121810957769766,
+					"parameters": {
+						"tag": "\"Stove\""
+					}
+				},
+				{
+					"id": "stop",
+					"objectClass": "Audio",
+					"sid": 755371327184788,
+					"parameters": {
+						"tag": "\"Fridge\""
+					}
+				},
+				{
+					"id": "stop",
+					"objectClass": "Audio",
+					"sid": 855185995981763,
+					"parameters": {
+						"tag": "\"Music\""
+					}
+				}
+			],
+			"sid": 370656266237586
+		}
+	],
+	"sid": 858107875093481
+}

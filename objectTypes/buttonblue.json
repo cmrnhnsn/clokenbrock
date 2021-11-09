@@ -1,0 +1,130 @@
+{
+	"name": "ButtonBlue",
+	"plugin-id": "Sprite",
+	"sid": 490892444648422,
+	"isGlobal": false,
+	"instanceVariables": [
+		{
+			"name": "BlueState",
+			"type": "number",
+			"desc": "",
+			"sid": 251777185430170
+		}
+	],
+	"behaviorTypes": [],
+	"effectTypes": [],
+	"animations": {
+		"items": [
+			{
+				"frames": [
+					{
+						"width": 38,
+						"height": 36,
+						"originX": 0.5,
+						"originY": 0.5,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 4267488,
+						"useCollisionPoly": true,
+						"duration": 1
+					}
+				],
+				"sid": 985100518053630,
+				"name": "Check",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 5
+			},
+			{
+				"frames": [
+					{
+						"width": 36,
+						"height": 36,
+						"originX": 0.5,
+						"originY": 0.5,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 5564122,
+						"collisionPoly": {
+							"points": [
+								0.1388888888888889,
+								0.1388888888888889,
+								0.5,
+								0,
+								0.8333333333333334,
+								0.1388888888888889,
+								0.9722222222222222,
+								0.5,
+								0.8055555555555556,
+								0.8055555555555556,
+								0.5,
+								0.9722222222222222,
+								0.1388888888888889,
+								0.8333333333333334,
+								0,
+								0.5
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1
+					}
+				],
+				"sid": 481195886508581,
+				"name": "Circle",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 5
+			},
+			{
+				"frames": [
+					{
+						"width": 38,
+						"height": 36,
+						"originX": 0.5,
+						"originY": 0.5,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 4070311,
+						"collisionPoly": {
+							"points": [
+								0.07894736842105263,
+								0.08333333333333333,
+								0.5,
+								0,
+								0.8947368421052632,
+								0.08333333333333333,
+								0.9473684210526315,
+								0.5,
+								0.8947368421052632,
+								0.8888888888888888,
+								0.5,
+								0.9722222222222222,
+								0.07894736842105263,
+								0.8888888888888888,
+								0.02631578947368421,
+								0.5
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1
+					}
+				],
+				"sid": 206981593478144,
+				"name": "Ex",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 5
+			}
+		],
+		"subfolders": []
+	}
+}

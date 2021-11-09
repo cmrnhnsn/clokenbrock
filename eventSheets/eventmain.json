@@ -1,0 +1,584 @@
+{
+	"name": "EventMain",
+	"events": [
+		{
+			"eventType": "variable",
+			"name": "Timer",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "The Global Timer ",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 637143265011661
+		},
+		{
+			"eventType": "variable",
+			"name": "IsActive",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "Describes whether the game is in active state. When active, timer is running and user can click",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 679727363870724
+		},
+		{
+			"eventType": "variable",
+			"name": "ButtonsState",
+			"type": "number",
+			"initialValue": "1",
+			"comment": "Number counting loop that controls the graphics buttons",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 958981580005430
+		},
+		{
+			"eventType": "variable",
+			"name": "ClickScore",
+			"type": "number",
+			"initialValue": "100",
+			"comment": "The sum of correct (+1) and incorrect (-10) clicks a user makes",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 131818084226599
+		},
+		{
+			"eventType": "variable",
+			"name": "TimerDiff",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "Subtract Timer from Timer Ideal",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 663761455564203
+		},
+		{
+			"eventType": "variable",
+			"name": "TimerIdeal",
+			"type": "number",
+			"initialValue": "10",
+			"comment": "The target time for user to stop gameplay",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 659749381962619
+		},
+		{
+			"eventType": "variable",
+			"name": "TotalScore",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "Combined Timer and Click Score",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 793241371186658
+		},
+		{
+			"eventType": "variable",
+			"name": "Multiplier",
+			"type": "number",
+			"initialValue": "100",
+			"comment": "Used to calculate Timer Score",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 904237234367586
+		},
+		{
+			"eventType": "variable",
+			"name": "TimerScore",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "The calculated timer-based score ",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 719520045719362
+		},
+		{
+			"eventType": "variable",
+			"name": "TimerThreshold",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "The acceptable variance (0.1) from the IdealTimer set",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 841415610774037
+		},
+		{
+			"eventType": "variable",
+			"name": "endState",
+			"type": "number",
+			"initialValue": "2",
+			"comment": "Describes whether player completed level successfully, or if they failed, how they failed. ",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 525921263153587
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Global",
+			"description": "Events that are on every layout",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "every-tick",
+							"objectClass": "System",
+							"sid": 110892220734825
+						}
+					],
+					"actions": [
+						{
+							"type": "comment",
+							"text": "Updates various displays, mostly dev related"
+						},
+						{
+							"id": "set-text",
+							"objectClass": "devTimerDisplay",
+							"sid": 762783373968403,
+							"parameters": {
+								"text": "\"Timer: \" & Timer"
+							}
+						},
+						{
+							"id": "set-text",
+							"objectClass": "devButtonsStatesDisplay",
+							"sid": 246835930002424,
+							"parameters": {
+								"text": "\"ButtonsState: \" & ButtonsState"
+							}
+						},
+						{
+							"id": "set-text",
+							"objectClass": "devisActive",
+							"sid": 562013999505311,
+							"disabled": true,
+							"parameters": {
+								"text": "\"timerThreshold: \" & TimerThreshold"
+							}
+						},
+						{
+							"id": "set-text",
+							"objectClass": "devTimerIdealDisplay",
+							"sid": 929249180339957,
+							"parameters": {
+								"text": "\"TimerIdeal: \" & TimerIdeal"
+							}
+						},
+						{
+							"id": "set-text",
+							"objectClass": "ClickScoreDisplay",
+							"sid": 389215554761723,
+							"parameters": {
+								"text": "\"ClickScore: \" & KitchenClick"
+							}
+						},
+						{
+							"id": "set-text",
+							"objectClass": "devButtonsStatesDisplay",
+							"sid": 408701931048815,
+							"parameters": {
+								"text": "\"ButtonsState: \" &ButtonsState"
+							}
+						},
+						{
+							"id": "set-text",
+							"objectClass": "SceneRandom",
+							"sid": 672202356840049,
+							"parameters": {
+								"text": "\"applianceSelector: \" & selAppliance"
+							}
+						}
+					],
+					"sid": 345179209768876,
+					"children": [
+						{
+							"eventType": "comment",
+							"text": "Starts Timer counting down"
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 148033516809962,
+									"parameters": {
+										"variable": "IsActive",
+										"comparison": 0,
+										"value": "1"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "subtract-from-eventvar",
+									"objectClass": "System",
+									"sid": 136048197859355,
+									"parameters": {
+										"variable": "Timer",
+										"value": "dt"
+									}
+								}
+							],
+							"sid": 239080025587925
+						},
+						{
+							"eventType": "comment",
+							"text": "Calculates and updates display of variables once gameplay has been stopped by the player."
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 613644837646572,
+									"parameters": {
+										"variable": "IsActive",
+										"comparison": 0,
+										"value": "3"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 447234736004604,
+									"parameters": {
+										"variable": "Timer",
+										"value": "round(Timer)"
+									}
+								},
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 802086919126611,
+									"parameters": {
+										"variable": "TimerDiff",
+										"value": "abs(TimerIdeal - Timer)"
+									}
+								},
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 700526164735846,
+									"parameters": {
+										"variable": "TimerScore",
+										"value": "(TimerIdeal-TimerDiff)*Multiplier"
+									}
+								},
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 645736169370000,
+									"parameters": {
+										"variable": "TotalScore",
+										"value": "round((ClickScore*5)+TimerScore)"
+									}
+								},
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 492890669894756,
+									"parameters": {
+										"variable": "TimerThreshold",
+										"value": "TimerIdeal*0.2"
+									}
+								},
+								{
+									"id": "set-text",
+									"objectClass": "Scores",
+									"sid": 658488019970784,
+									"parameters": {
+										"text": "\"Timer Difference: \" & TimerDiff"
+									}
+								},
+								{
+									"id": "set-text",
+									"objectClass": "KitchenClick",
+									"sid": 909158327667586,
+									"parameters": {
+										"text": "\"Kitchen Click: \" & KitchenClick"
+									}
+								},
+								{
+									"id": "append-text",
+									"objectClass": "Scores",
+									"sid": 106151902961389,
+									"parameters": {
+										"text": "\"    |    TimerThreshold: \"&TimerThreshold"
+									}
+								}
+							],
+							"sid": 303709696833818
+						}
+					]
+				}
+			],
+			"sid": 368367171379800
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Menu",
+			"description": "Events that are controlled from the Menu layout",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "comment",
+					"text": "Player selects Game 1 or Game 2\n\nOLD: Sets the timer goal and timer to a random number between 5 and 30, which also updates Button State to ensure the pattern of block changes is reasonably varied, then navigates to the game"
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-object-clicked",
+							"objectClass": "Mouse",
+							"sid": 714189435663303,
+							"parameters": {
+								"mouse-button": "left",
+								"click-type": "clicked",
+								"object-clicked": "Play"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "play",
+							"objectClass": "Audio",
+							"sid": 913654482692770,
+							"parameters": {
+								"audio-file": "click1",
+								"loop": "not-looping",
+								"volume": "0",
+								"tag-optional": "\"Click\""
+							}
+						}
+					],
+					"sid": 573174181232046,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "pick-by-unique-id",
+									"objectClass": "ButtonGameOne",
+									"sid": 846220290174337,
+									"parameters": {
+										"unique-id": "50"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "go-to-layout",
+									"objectClass": "System",
+									"sid": 862786343452701,
+									"parameters": {
+										"layout": "G1 Game"
+									}
+								}
+							],
+							"sid": 471205402801794,
+							"disabled": true
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "pick-by-unique-id",
+									"objectClass": "Play",
+									"sid": 901168215996440,
+									"parameters": {
+										"unique-id": "66"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "go-to-layout",
+									"objectClass": "System",
+									"sid": 644220249145625,
+									"parameters": {
+										"layout": "G2 Game"
+									}
+								}
+							],
+							"sid": 338399415817097
+						}
+					]
+				}
+			],
+			"sid": 450794063054499
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Score Control",
+			"description": "Events manifested on the Score layout",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-object-clicked",
+							"objectClass": "Mouse",
+							"sid": 560573418170591,
+							"parameters": {
+								"mouse-button": "left",
+								"click-type": "clicked",
+								"object-clicked": "StartStop"
+							}
+						},
+						{
+							"id": "pick-by-unique-id",
+							"objectClass": "StartStop",
+							"sid": 190876437679086,
+							"parameters": {
+								"unique-id": "60"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "reset-global-variables",
+							"objectClass": "System",
+							"sid": 879485356043357
+						},
+						{
+							"id": "go-to-layout",
+							"objectClass": "System",
+							"sid": 441751296815897,
+							"parameters": {
+								"layout": "Menu"
+							}
+						}
+					],
+					"sid": 623181239304918
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-start-of-layout",
+							"objectClass": "System",
+							"sid": 804962462580350
+						}
+					],
+					"actions": [
+						{
+							"id": "stop-all",
+							"objectClass": "Audio",
+							"sid": 752312873906589
+						}
+					],
+					"sid": 610967479926441,
+					"children": [
+						{
+							"eventType": "comment",
+							"text": "This doesn't work right. I think I need to compare (Timer/TimerDiff) and (Timer/TimerThreshold), but I'm not sure. MAybe just need to attach them to button ending play"
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 720694943122274,
+									"parameters": {
+										"first-value": "TimerDiff",
+										"comparison": 2,
+										"second-value": "TimerThreshold"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 450222410120669,
+									"parameters": {
+										"variable": "endState",
+										"value": "1"
+									}
+								}
+							],
+							"sid": 491758693911519
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 912216211670942,
+									"parameters": {
+										"first-value": "TimerDiff",
+										"comparison": 4,
+										"second-value": "TimerThreshold"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 243932522029653,
+									"parameters": {
+										"variable": "endState",
+										"value": "2"
+									}
+								}
+							],
+							"sid": 890896151722658
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 269288215616473,
+									"parameters": {
+										"variable": "KitchenClick",
+										"comparison": 3,
+										"value": "0"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 344153350833632,
+									"parameters": {
+										"variable": "endState",
+										"value": "3"
+									}
+								}
+							],
+							"sid": 861232886276011
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-start-of-layout",
+							"objectClass": "System",
+							"sid": 457820288816534
+						}
+					],
+					"actions": [],
+					"sid": 922458608504466
+				}
+			],
+			"sid": 913387191591792
+		}
+	],
+	"sid": 575495125477354
+}

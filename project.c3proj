@@ -1,0 +1,409 @@
+{
+	"projectFormatVersion": 1,
+	"savedWithRelease": 26800,
+	"name": "Cloken Brock",
+	"runtime": "c3",
+	"useWorker": "auto",
+	"bundleAddons": false,
+	"usedAddons": [
+		{
+			"type": "plugin",
+			"id": "Sprite",
+			"name": "Sprite",
+			"author": "Scirra",
+			"version": "r268",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "Text",
+			"name": "Text",
+			"author": "Scirra",
+			"version": "r268",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "Button",
+			"name": "Button",
+			"author": "Scirra",
+			"version": "r268",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "TiledBg",
+			"name": "Tiled Background",
+			"author": "Scirra",
+			"version": "r268",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "Mouse",
+			"name": "Mouse",
+			"author": "Scirra",
+			"version": "r268",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "Audio",
+			"name": "Audio",
+			"author": "Scirra",
+			"version": "r268",
+			"bundled": false
+		},
+		{
+			"type": "effect",
+			"id": "glowhorizontal",
+			"name": "Glow horizontal",
+			"author": "Scirra",
+			"version": "r268",
+			"bundled": false
+		},
+		{
+			"type": "effect",
+			"id": "glowvertical",
+			"name": "Glow vertical",
+			"author": "Scirra",
+			"version": "r268",
+			"bundled": false
+		}
+	],
+	"uniqueId": "ai71g0dheud",
+	"objectTypes": {
+		"items": [
+			"TiledBackground",
+			"Mouse",
+			"Audio",
+			"Rays",
+			"enterButtons"
+		],
+		"subfolders": [
+			{
+				"items": [
+					"StartStop",
+					"grey_panel"
+				],
+				"subfolders": [],
+				"name": "Game"
+			},
+			{
+				"items": [
+					"devButtonsStatesDisplay",
+					"ClickScoreDisplay",
+					"devisActive",
+					"devTimerDisplay",
+					"devTimerIdealDisplay",
+					"TimerScoreDisplay",
+					"TotalScoreDisplay"
+				],
+				"subfolders": [],
+				"name": "Labels"
+			},
+			{
+				"items": [
+					"endingBad",
+					"endingGood",
+					"KitchenClick",
+					"KitchenGoal",
+					"KitchenStory",
+					"Play",
+					"SceneRandom",
+					"TimerGoal",
+					"WokeFamily",
+					"Scores",
+					"ScoreTitle",
+					"Instructions1"
+				],
+				"subfolders": [
+					{
+						"items": [
+							"Title",
+							"ButtonGameOne",
+							"DevChoice",
+							"devDisplayText"
+						],
+						"subfolders": [],
+						"name": "Menu"
+					}
+				],
+				"name": "Texts"
+			},
+			{
+				"items": [
+					"Avatar",
+					"Cat",
+					"sheet_tanks",
+					"Eyes",
+					"jail"
+				],
+				"subfolders": [
+					{
+						"items": [
+							"ButtonBlue",
+							"ButtonGreen",
+							"ButtonYellow"
+						],
+						"subfolders": [],
+						"name": "Game 1"
+					},
+					{
+						"items": [
+							"Hotspot",
+							"Kitchen",
+							"kettle",
+							"smoke",
+							"cubes"
+						],
+						"subfolders": [],
+						"name": "Game 2"
+					},
+					{
+						"items": [
+							"blueSheet"
+						],
+						"subfolders": [],
+						"name": "Menu"
+					}
+				],
+				"name": "Images"
+			}
+		]
+	},
+	"autosaveData": null,
+	"containers": [],
+	"families": {
+		"items": [],
+		"subfolders": []
+	},
+	"layouts": {
+		"items": [
+			"Layout 1",
+			"Menu",
+			"G1 Game",
+			"G2 Game",
+			"Score"
+		],
+		"subfolders": []
+	},
+	"eventSheets": {
+		"items": [
+			"EventMain",
+			"G1 Events",
+			"G2 Events",
+			"Score Events"
+		],
+		"subfolders": []
+	},
+	"rootFileFolders": {
+		"script": {
+			"items": [],
+			"subfolders": []
+		},
+		"sound": {
+			"items": [
+				{
+					"name": "Microwave.webm",
+					"type": "audio/webm; codecs=opus",
+					"sid": 872726965217891
+				},
+				{
+					"name": "Stove.webm",
+					"type": "audio/webm; codecs=opus",
+					"sid": 272325052861729
+				},
+				{
+					"name": "Fridge.webm",
+					"type": "audio/webm; codecs=opus",
+					"sid": 321302956155824
+				},
+				{
+					"name": "Correct.webm",
+					"type": "audio/webm; codecs=opus",
+					"sid": 231789031434933
+				},
+				{
+					"name": "tick.webm",
+					"type": "audio/webm; codecs=opus",
+					"sid": 167036731643743
+				},
+				{
+					"name": "Incorrect.webm",
+					"type": "audio/webm; codecs=opus",
+					"sid": 186868838079145
+				},
+				{
+					"name": "click1.webm",
+					"type": "audio/webm; codecs=opus",
+					"sid": 135584102290289
+				},
+				{
+					"name": "goodMeow.webm",
+					"type": "audio/webm; codecs=opus",
+					"sid": 529247028524320
+				},
+				{
+					"name": "badMeow.webm",
+					"type": "audio/webm; codecs=opus",
+					"sid": 433836892685737
+				},
+				{
+					"name": "badHiss.webm",
+					"type": "audio/webm; codecs=opus",
+					"sid": 632494589102598
+				},
+				{
+					"name": "Metronome 2.webm",
+					"type": "audio/webm; codecs=opus",
+					"sid": 741982892007157
+				}
+			],
+			"subfolders": []
+		},
+		"music": {
+			"items": [],
+			"subfolders": []
+		},
+		"video": {
+			"items": [],
+			"subfolders": []
+		},
+		"font": {
+			"items": [],
+			"subfolders": []
+		},
+		"icon": {
+			"items": [
+				{
+					"name": "icon-32.png",
+					"type": "image/png",
+					"sid": 154387254625463,
+					"icon-info": {
+						"purpose": "app-icon"
+					}
+				},
+				{
+					"name": "icon-16.png",
+					"type": "image/png",
+					"sid": 558823194259170,
+					"icon-info": {
+						"purpose": "app-icon"
+					}
+				},
+				{
+					"name": "icon-256.png",
+					"type": "image/png",
+					"sid": 350162816657413,
+					"icon-info": {
+						"purpose": "app-icon"
+					}
+				},
+				{
+					"name": "icon-64.png",
+					"type": "image/png",
+					"sid": 135307872413627,
+					"icon-info": {
+						"purpose": "app-icon"
+					}
+				},
+				{
+					"name": "icon-128.png",
+					"type": "image/png",
+					"sid": 383300445414291,
+					"icon-info": {
+						"purpose": "app-icon"
+					}
+				},
+				{
+					"name": "icon-512.png",
+					"type": "image/png",
+					"sid": 368166238754457,
+					"icon-info": {
+						"purpose": "app-icon"
+					}
+				},
+				{
+					"name": "loading-logo.png",
+					"type": "image/png",
+					"sid": 433711343084715,
+					"icon-info": {
+						"purpose": "loading-logo"
+					}
+				}
+			],
+			"subfolders": []
+		},
+		"general": {
+			"items": [
+				{
+					"name": "UIpack_vector.svg",
+					"type": "image/svg+xml",
+					"sid": 903764504992737
+				}
+			],
+			"subfolders": []
+		}
+	},
+	"timelines": {
+		"items": [
+			"Timeline 1"
+		],
+		"subfolders": [
+			{
+				"items": [],
+				"subfolders": []
+			}
+		]
+	},
+	"properties": {
+		"description": "",
+		"version": "1.0.0.0",
+		"author": "Cameron Hansen",
+		"authorEmail": "",
+		"authorWebsite": "",
+		"appId": "",
+		"pixelRounding": false,
+		"useLoaderLayout": false,
+		"fullscreenMode": "letterbox-scale",
+		"fullscreenQuality": "high",
+		"viewportFit": "auto",
+		"backgroundColor": [
+			0,
+			0,
+			0,
+			0
+		],
+		"splashColor": [
+			1,
+			1,
+			1,
+			0
+		],
+		"useThemeColor": false,
+		"themeColor": [
+			1,
+			1,
+			1,
+			0
+		],
+		"orientations": "landscape",
+		"gpuPreference": "high-performance",
+		"scriptsType": "module",
+		"framerateMode": "vsync",
+		"compositingMode": "standard",
+		"sampling": "trilinear",
+		"downscaling": "medium",
+		"renderingMode": "auto",
+		"anisotropicFiltering": "auto",
+		"maxSpriteSheetSize": 2048,
+		"loaderStyle": "progress",
+		"preloadSounds": true,
+		"cordovaiOSScheme": "app",
+		"cordovaAndroidScheme": "file"
+	},
+	"viewportWidth": 854,
+	"viewportHeight": 480,
+	"firstLayout": "Menu"
+}

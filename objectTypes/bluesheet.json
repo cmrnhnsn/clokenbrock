@@ -1,0 +1,72 @@
+{
+	"name": "blueSheet",
+	"plugin-id": "Sprite",
+	"sid": 961621153260794,
+	"isGlobal": false,
+	"instanceVariables": [],
+	"behaviorTypes": [],
+	"effectTypes": [],
+	"animations": {
+		"items": [
+			{
+				"frames": [
+					{
+						"width": 512,
+						"height": 256,
+						"originX": 0.5,
+						"originY": 0.5,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 7427,
+						"useCollisionPoly": true,
+						"duration": 1
+					}
+				],
+				"sid": 908525366642671,
+				"name": "Master",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 5
+			},
+			{
+				"frames": [
+					{
+						"width": 191,
+						"height": 49,
+						"originX": 1.3455497382198953,
+						"originY": 2.63265306122449,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 4415174,
+						"collisionPoly": {
+							"points": [
+								0.005235602094240838,
+								0.02040816326530612,
+								1,
+								0.02040816326530612,
+								1,
+								1,
+								0.005235602094240838,
+								1
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1
+					}
+				],
+				"sid": 993111251613667,
+				"name": "Start",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 5
+			}
+		],
+		"subfolders": []
+	}
+}

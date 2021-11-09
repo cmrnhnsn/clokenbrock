@@ -1,0 +1,9 @@
+{
+	"name": "TimerScoreDisplay",
+	"plugin-id": "Text",
+	"sid": 202339101378219,
+	"isGlobal": false,
+	"instanceVariables": [],
+	"behaviorTypes": [],
+	"effectTypes": []
+}

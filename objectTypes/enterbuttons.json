@@ -1,0 +1,37 @@
+{
+	"name": "enterButtons",
+	"plugin-id": "Sprite",
+	"sid": 150027586080428,
+	"isGlobal": false,
+	"instanceVariables": [],
+	"behaviorTypes": [],
+	"effectTypes": [],
+	"animations": {
+		"items": [
+			{
+				"frames": [
+					{
+						"width": 957,
+						"height": 259,
+						"originX": 0.4994775339602926,
+						"originY": 0.49034749034749037,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 8093249,
+						"useCollisionPoly": true,
+						"duration": 1
+					}
+				],
+				"sid": 103945933062921,
+				"name": "Default",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 5
+			}
+		],
+		"subfolders": []
+	}
+}

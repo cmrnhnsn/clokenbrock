@@ -1,0 +1,980 @@
+{
+	"name": "G1 Events",
+	"events": [
+		{
+			"eventType": "include",
+			"includeSheet": "EventMain"
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Controls - G1 Game2",
+			"description": "User controls on G1 Game",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-start-of-layout",
+							"objectClass": "System",
+							"sid": 120916116105371
+						}
+					],
+					"actions": [
+						{
+							"id": "set-layer-visible",
+							"objectClass": "System",
+							"sid": 950517513951169,
+							"parameters": {
+								"layer": "2",
+								"visibility": "visible"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 981922421450241,
+							"parameters": {
+								"variable": "TimerIdeal",
+								"value": "floor(random(5, 30))"
+							}
+						},
+						{
+							"id": "wait-for-previous-actions",
+							"objectClass": "System",
+							"sid": 168808508694672
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 823386472917004,
+							"parameters": {
+								"variable": "Timer",
+								"value": "TimerIdeal"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 725004088268307,
+							"parameters": {
+								"variable": "ButtonsState",
+								"value": "floor(random(1, 99))"
+							}
+						}
+					],
+					"sid": 557693175701638
+				},
+				{
+					"eventType": "comment",
+					"text": "Player control to start and stop the game."
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-object-clicked",
+							"objectClass": "Mouse",
+							"sid": 750266401922265,
+							"parameters": {
+								"mouse-button": "left",
+								"click-type": "clicked",
+								"object-clicked": "StartStop"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-layer-visible",
+							"objectClass": "System",
+							"sid": 683775398995366,
+							"parameters": {
+								"layer": "2",
+								"visibility": "invisible"
+							}
+						}
+					],
+					"sid": 269538727488426,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-animation-playing",
+									"objectClass": "StartStop",
+									"sid": 440362415235239,
+									"parameters": {
+										"animation": "\"Start\""
+									},
+									"isInverted": true
+								}
+							],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 127672074423910,
+									"parameters": {
+										"variable": "IsActive",
+										"value": "3"
+									}
+								},
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 920546799933250,
+									"parameters": {
+										"seconds": "0.5"
+									}
+								},
+								{
+									"id": "go-to-layout",
+									"objectClass": "System",
+									"sid": 211014320118596,
+									"parameters": {
+										"layout": "Score"
+									}
+								}
+							],
+							"sid": 922321908626231
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-animation-playing",
+									"objectClass": "StartStop",
+									"sid": 895544750751671,
+									"parameters": {
+										"animation": "\"Start\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 169753883218043,
+									"parameters": {
+										"seconds": "0.1"
+									}
+								},
+								{
+									"id": "set-animation",
+									"objectClass": "StartStop",
+									"sid": 456295674763035,
+									"parameters": {
+										"animation": "\"Stop\"",
+										"from": "beginning"
+									}
+								},
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 840977293978784,
+									"parameters": {
+										"variable": "IsActive",
+										"value": "1"
+									}
+								}
+							],
+							"sid": 214140933279385
+						}
+					]
+				},
+				{
+					"eventType": "comment",
+					"text": "User control for Blue Button. Checks if button is valid state and adds 1 point to Click Score, if in invalid state, subtracts 2 points from Click Score.  Only active during active game. "
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-object-clicked",
+							"objectClass": "Mouse",
+							"sid": 969722189179902,
+							"parameters": {
+								"mouse-button": "left",
+								"click-type": "clicked",
+								"object-clicked": "ButtonBlue"
+							}
+						},
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 969575402122721,
+							"parameters": {
+								"variable": "IsActive",
+								"comparison": 0,
+								"value": "1"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 282125578272992,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-animation-playing",
+									"objectClass": "ButtonBlue",
+									"sid": 211721575508042,
+									"parameters": {
+										"animation": "\"Check\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "add-to-eventvar",
+									"objectClass": "System",
+									"sid": 954287182820334,
+									"parameters": {
+										"variable": "ClickScore",
+										"value": "1"
+									}
+								}
+							],
+							"sid": 501743197056084
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-animation-playing",
+									"objectClass": "ButtonBlue",
+									"sid": 717326542944573,
+									"parameters": {
+										"animation": "\"Check\""
+									},
+									"isInverted": true
+								}
+							],
+							"actions": [
+								{
+									"id": "add-to-eventvar",
+									"objectClass": "System",
+									"sid": 207755212254817,
+									"parameters": {
+										"variable": "ClickScore",
+										"value": "-2"
+									}
+								}
+							],
+							"sid": 854708861672224
+						}
+					]
+				},
+				{
+					"eventType": "comment",
+					"text": "User control for Green Button. Checks if button is valid state and adds 1 point to Click Score, if in invalid state, subtracts 2 points from Click Score.  Only active during active game. "
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-object-clicked",
+							"objectClass": "Mouse",
+							"sid": 861517899896423,
+							"parameters": {
+								"mouse-button": "left",
+								"click-type": "clicked",
+								"object-clicked": "ButtonGreen"
+							}
+						},
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 399782414711260,
+							"parameters": {
+								"variable": "IsActive",
+								"comparison": 0,
+								"value": "1"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 207082321006388,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-animation-playing",
+									"objectClass": "ButtonGreen",
+									"sid": 885871162956480,
+									"parameters": {
+										"animation": "\"Check\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "add-to-eventvar",
+									"objectClass": "System",
+									"sid": 190665636868329,
+									"parameters": {
+										"variable": "ClickScore",
+										"value": "1"
+									}
+								}
+							],
+							"sid": 581425610627167
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-animation-playing",
+									"objectClass": "ButtonGreen",
+									"sid": 454705924595339,
+									"parameters": {
+										"animation": "\"Check\""
+									},
+									"isInverted": true
+								}
+							],
+							"actions": [
+								{
+									"id": "add-to-eventvar",
+									"objectClass": "System",
+									"sid": 695672620793549,
+									"parameters": {
+										"variable": "ClickScore",
+										"value": "-2"
+									}
+								}
+							],
+							"sid": 442516831673932
+						}
+					]
+				},
+				{
+					"eventType": "comment",
+					"text": "User control for Yellow Button. Checks if button is valid state and adds 1 point to Click Score, if in invalid state, subtracts 2 points from Click Score.  Only active during active game. "
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-object-clicked",
+							"objectClass": "Mouse",
+							"sid": 690855756137316,
+							"parameters": {
+								"mouse-button": "left",
+								"click-type": "clicked",
+								"object-clicked": "ButtonYellow"
+							}
+						},
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 821748681653005,
+							"parameters": {
+								"variable": "IsActive",
+								"comparison": 0,
+								"value": "1"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 772903327487966,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-animation-playing",
+									"objectClass": "ButtonYellow",
+									"sid": 650502377681324,
+									"parameters": {
+										"animation": "\"Check\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "add-to-eventvar",
+									"objectClass": "System",
+									"sid": 152959304591380,
+									"parameters": {
+										"variable": "ClickScore",
+										"value": "1"
+									}
+								}
+							],
+							"sid": 234344673687010
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-animation-playing",
+									"objectClass": "ButtonYellow",
+									"sid": 224663570565812,
+									"parameters": {
+										"animation": "\"Check\""
+									},
+									"isInverted": true
+								}
+							],
+							"actions": [
+								{
+									"id": "add-to-eventvar",
+									"objectClass": "System",
+									"sid": 130778208914798,
+									"parameters": {
+										"variable": "ClickScore",
+										"value": "-2"
+									}
+								}
+							],
+							"sid": 152270537880914
+						}
+					]
+				}
+			],
+			"sid": 953136162508409
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "G1 Game2",
+			"description": "Events that manifest on the G1 Game layout",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "comment",
+					"text": "Displays goal for player"
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-start-of-layout",
+							"objectClass": "System",
+							"sid": 437282915416604
+						}
+					],
+					"actions": [
+						{
+							"id": "set-text",
+							"objectClass": "TimerGoal",
+							"sid": 258136294703321,
+							"parameters": {
+								"text": "\"Your Goal Is:         \" & TimerIdeal"
+							}
+						},
+						{
+							"id": "append-text",
+							"objectClass": "TimerGoal",
+							"sid": 986615759480713,
+							"parameters": {
+								"text": "\" Seconds\""
+							}
+						}
+					],
+					"sid": 708640119595580,
+					"children": [
+						{
+							"eventType": "comment",
+							"text": "Displays dev elements if they were enabled on Menu layout"
+						},
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "set-layer-visible",
+									"objectClass": "System",
+									"sid": 744376166821494,
+									"parameters": {
+										"layer": "1",
+										"visibility": "visible"
+									}
+								}
+							],
+							"sid": 617865290678631
+						}
+					]
+				},
+				{
+					"eventType": "group",
+					"disabled": false,
+					"title": "Calculations - G1 Game2",
+					"description": "Background calculations used to control features on G1 - Game",
+					"isActiveOnStart": true,
+					"children": [
+						{
+							"eventType": "comment",
+							"text": "Loops the Buttons State control from 0-100"
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "every-x-seconds",
+									"objectClass": "System",
+									"sid": 903391148737901,
+									"parameters": {
+										"interval-seconds": "0.1"
+									}
+								}
+							],
+							"actions": [],
+							"sid": 955380361972757,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 590686600720572,
+											"parameters": {
+												"variable": "IsActive",
+												"comparison": 0,
+												"value": "1"
+											}
+										}
+									],
+									"actions": [],
+									"sid": 912274360938550,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-eventvar",
+													"objectClass": "System",
+													"sid": 945783118664649,
+													"parameters": {
+														"variable": "ButtonsState",
+														"comparison": 3,
+														"value": "100"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "add-to-eventvar",
+													"objectClass": "System",
+													"sid": 713230051266617,
+													"parameters": {
+														"variable": "ButtonsState",
+														"value": "3"
+													}
+												}
+											],
+											"sid": 957633658642948
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-eventvar",
+													"objectClass": "System",
+													"sid": 324741156347072,
+													"parameters": {
+														"variable": "ButtonsState",
+														"comparison": 3,
+														"value": "100"
+													},
+													"isInverted": true
+												}
+											],
+											"actions": [
+												{
+													"id": "set-eventvar-value",
+													"objectClass": "System",
+													"sid": 432577554444081,
+													"parameters": {
+														"variable": "ButtonsState",
+														"value": "0"
+													}
+												}
+											],
+											"sid": 968631674524389
+										}
+									]
+								}
+							]
+						},
+						{
+							"eventType": "comment",
+							"text": "Changes the animation/state of the Blue Button based on arbitrary relationship to Buttons State variable"
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "every-x-seconds",
+									"objectClass": "System",
+									"sid": 823743288019039,
+									"parameters": {
+										"interval-seconds": "1"
+									}
+								},
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 654652948907691,
+									"parameters": {
+										"variable": "IsActive",
+										"comparison": 0,
+										"value": "1"
+									}
+								}
+							],
+							"actions": [],
+							"sid": 595346892812354,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-between-values",
+											"objectClass": "System",
+											"sid": 198601961269245,
+											"parameters": {
+												"value": "ButtonsState",
+												"lower-bound": "20",
+												"upper-bound": "53"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-animation",
+											"objectClass": "ButtonBlue",
+											"sid": 916983480373243,
+											"parameters": {
+												"animation": "\"Ex\"",
+												"from": "beginning"
+											}
+										}
+									],
+									"sid": 454570331981243
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-between-values",
+											"objectClass": "System",
+											"sid": 565649950131644,
+											"parameters": {
+												"value": "ButtonsState",
+												"lower-bound": "54",
+												"upper-bound": "77"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-animation",
+											"objectClass": "ButtonBlue",
+											"sid": 937423520966464,
+											"parameters": {
+												"animation": "\"Circle\"",
+												"from": "beginning"
+											}
+										}
+									],
+									"sid": 861607784707768
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-between-values",
+											"objectClass": "System",
+											"sid": 650443925445104,
+											"parameters": {
+												"value": "ButtonsState",
+												"lower-bound": "77",
+												"upper-bound": "100"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-animation",
+											"objectClass": "ButtonBlue",
+											"sid": 323205017719061,
+											"parameters": {
+												"animation": "\"Check\"",
+												"from": "beginning"
+											}
+										}
+									],
+									"sid": 716554920821828
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-between-values",
+											"objectClass": "System",
+											"sid": 444826180737506,
+											"parameters": {
+												"value": "ButtonsState",
+												"lower-bound": "0",
+												"upper-bound": "19"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-animation",
+											"objectClass": "ButtonBlue",
+											"sid": 377651689511700,
+											"parameters": {
+												"animation": "\"Ex\"",
+												"from": "beginning"
+											}
+										}
+									],
+									"sid": 730015476099411
+								}
+							]
+						},
+						{
+							"eventType": "comment",
+							"text": "Changes the animation/state of the Green Button based on arbitrary relationship to Buttons State variable"
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "every-x-seconds",
+									"objectClass": "System",
+									"sid": 435127052255777,
+									"parameters": {
+										"interval-seconds": "2"
+									}
+								},
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 625639254852190,
+									"parameters": {
+										"variable": "IsActive",
+										"comparison": 0,
+										"value": "1"
+									}
+								}
+							],
+							"actions": [],
+							"sid": 968208835457285,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-between-values",
+											"objectClass": "System",
+											"sid": 848331899379652,
+											"parameters": {
+												"value": "ButtonsState",
+												"lower-bound": "0",
+												"upper-bound": "33"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-animation",
+											"objectClass": "ButtonGreen",
+											"sid": 409075500438035,
+											"parameters": {
+												"animation": "\"Ex\"",
+												"from": "beginning"
+											}
+										}
+									],
+									"sid": 331562414050085
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-between-values",
+											"objectClass": "System",
+											"sid": 684756127617702,
+											"parameters": {
+												"value": "ButtonsState",
+												"lower-bound": "34",
+												"upper-bound": "66"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-animation",
+											"objectClass": "ButtonGreen",
+											"sid": 421946825658750,
+											"parameters": {
+												"animation": "\"Circle\"",
+												"from": "beginning"
+											}
+										}
+									],
+									"sid": 635744725689144
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-between-values",
+											"objectClass": "System",
+											"sid": 166847016145349,
+											"parameters": {
+												"value": "ButtonsState",
+												"lower-bound": "67",
+												"upper-bound": "100"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-animation",
+											"objectClass": "ButtonGreen",
+											"sid": 486859131812293,
+											"parameters": {
+												"animation": "\"Check\"",
+												"from": "beginning"
+											}
+										}
+									],
+									"sid": 835734792488649
+								}
+							]
+						},
+						{
+							"eventType": "comment",
+							"text": "Changes the animation/state of the Yellow Button based on arbitrary relationship to Buttons State variable"
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "every-x-seconds",
+									"objectClass": "System",
+									"sid": 311214572998771,
+									"parameters": {
+										"interval-seconds": "3"
+									}
+								},
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 289476372817305,
+									"parameters": {
+										"variable": "IsActive",
+										"comparison": 0,
+										"value": "1"
+									}
+								}
+							],
+							"actions": [],
+							"sid": 857825617835851,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-between-values",
+											"objectClass": "System",
+											"sid": 374983504312428,
+											"parameters": {
+												"value": "ButtonsState",
+												"lower-bound": "0",
+												"upper-bound": "33"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-animation",
+											"objectClass": "ButtonYellow",
+											"sid": 166381835983910,
+											"parameters": {
+												"animation": "\"Check\"",
+												"from": "beginning"
+											}
+										}
+									],
+									"sid": 255073730434941
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-between-values",
+											"objectClass": "System",
+											"sid": 841057191719379,
+											"parameters": {
+												"value": "ButtonsState",
+												"lower-bound": "34",
+												"upper-bound": "66"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-animation",
+											"objectClass": "ButtonYellow",
+											"sid": 790895142078422,
+											"parameters": {
+												"animation": "\"Ex\"",
+												"from": "beginning"
+											}
+										}
+									],
+									"sid": 148609497218388
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-between-values",
+											"objectClass": "System",
+											"sid": 710441027038323,
+											"parameters": {
+												"value": "ButtonsState",
+												"lower-bound": "67",
+												"upper-bound": "100"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-animation",
+											"objectClass": "ButtonYellow",
+											"sid": 228360498696776,
+											"parameters": {
+												"animation": "\"Circle\"",
+												"from": "beginning"
+											}
+										}
+									],
+									"sid": 300576009413147
+								}
+							]
+						}
+					],
+					"sid": 447534234941815
+				},
+				{
+					"eventType": "comment",
+					"text": "Moved to G1 Events"
+				}
+			],
+			"sid": 437556084838991
+		}
+	],
+	"sid": 117395950812768
+}
