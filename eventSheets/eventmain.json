@@ -35,15 +35,15 @@
 			"eventType": "variable",
 			"name": "ClickScore",
 			"type": "number",
-			"initialValue": "100",
-			"comment": "The sum of correct (+1) and incorrect (-10) clicks a user makes",
+			"initialValue": "0",
+			"comment": "The sum of correct (+10) and incorrect (-10) clicks a user makes",
 			"isStatic": false,
 			"isConstant": false,
 			"sid": 131818084226599
 		},
 		{
 			"eventType": "variable",
-			"name": "TimerDiff",
+			"name": "TimerEnd",
 			"type": "number",
 			"initialValue": "0",
 			"comment": "Subtract Timer from Timer Ideal",
@@ -55,11 +55,21 @@
 			"eventType": "variable",
 			"name": "TimerIdeal",
 			"type": "number",
-			"initialValue": "10",
+			"initialValue": "0",
 			"comment": "The target time for user to stop gameplay",
 			"isStatic": false,
 			"isConstant": false,
 			"sid": 659749381962619
+		},
+		{
+			"eventType": "variable",
+			"name": "TimerThreshold",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "The acceptable variance (0.1) from the IdealTimer set",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 733086031684402
 		},
 		{
 			"eventType": "variable",
@@ -93,19 +103,9 @@
 		},
 		{
 			"eventType": "variable",
-			"name": "TimerThreshold",
-			"type": "number",
-			"initialValue": "0",
-			"comment": "The acceptable variance (0.1) from the IdealTimer set",
-			"isStatic": false,
-			"isConstant": false,
-			"sid": 841415610774037
-		},
-		{
-			"eventType": "variable",
 			"name": "endState",
 			"type": "number",
-			"initialValue": "2",
+			"initialValue": "0",
 			"comment": "Describes whether player completed level successfully, or if they failed, how they failed. ",
 			"isStatic": false,
 			"isConstant": false,
@@ -131,63 +131,6 @@
 						{
 							"type": "comment",
 							"text": "Updates various displays, mostly dev related"
-						},
-						{
-							"id": "set-text",
-							"objectClass": "devTimerDisplay",
-							"sid": 762783373968403,
-							"parameters": {
-								"text": "\"Timer: \" & Timer"
-							}
-						},
-						{
-							"id": "set-text",
-							"objectClass": "devButtonsStatesDisplay",
-							"sid": 246835930002424,
-							"parameters": {
-								"text": "\"ButtonsState: \" & ButtonsState"
-							}
-						},
-						{
-							"id": "set-text",
-							"objectClass": "devisActive",
-							"sid": 562013999505311,
-							"disabled": true,
-							"parameters": {
-								"text": "\"timerThreshold: \" & TimerThreshold"
-							}
-						},
-						{
-							"id": "set-text",
-							"objectClass": "devTimerIdealDisplay",
-							"sid": 929249180339957,
-							"parameters": {
-								"text": "\"TimerIdeal: \" & TimerIdeal"
-							}
-						},
-						{
-							"id": "set-text",
-							"objectClass": "ClickScoreDisplay",
-							"sid": 389215554761723,
-							"parameters": {
-								"text": "\"ClickScore: \" & KitchenClick"
-							}
-						},
-						{
-							"id": "set-text",
-							"objectClass": "devButtonsStatesDisplay",
-							"sid": 408701931048815,
-							"parameters": {
-								"text": "\"ButtonsState: \" &ButtonsState"
-							}
-						},
-						{
-							"id": "set-text",
-							"objectClass": "SceneRandom",
-							"sid": 672202356840049,
-							"parameters": {
-								"text": "\"applianceSelector: \" & selAppliance"
-							}
 						}
 					],
 					"sid": 345179209768876,
@@ -245,70 +188,11 @@
 								{
 									"id": "set-eventvar-value",
 									"objectClass": "System",
-									"sid": 447234736004604,
-									"parameters": {
-										"variable": "Timer",
-										"value": "round(Timer)"
-									}
-								},
-								{
-									"id": "set-eventvar-value",
-									"objectClass": "System",
-									"sid": 802086919126611,
-									"parameters": {
-										"variable": "TimerDiff",
-										"value": "abs(TimerIdeal - Timer)"
-									}
-								},
-								{
-									"id": "set-eventvar-value",
-									"objectClass": "System",
-									"sid": 700526164735846,
-									"parameters": {
-										"variable": "TimerScore",
-										"value": "(TimerIdeal-TimerDiff)*Multiplier"
-									}
-								},
-								{
-									"id": "set-eventvar-value",
-									"objectClass": "System",
-									"sid": 645736169370000,
-									"parameters": {
-										"variable": "TotalScore",
-										"value": "round((ClickScore*5)+TimerScore)"
-									}
-								},
-								{
-									"id": "set-eventvar-value",
-									"objectClass": "System",
 									"sid": 492890669894756,
+									"disabled": true,
 									"parameters": {
 										"variable": "TimerThreshold",
 										"value": "TimerIdeal*0.2"
-									}
-								},
-								{
-									"id": "set-text",
-									"objectClass": "Scores",
-									"sid": 658488019970784,
-									"parameters": {
-										"text": "\"Timer Difference: \" & TimerDiff"
-									}
-								},
-								{
-									"id": "set-text",
-									"objectClass": "KitchenClick",
-									"sid": 909158327667586,
-									"parameters": {
-										"text": "\"Kitchen Click: \" & KitchenClick"
-									}
-								},
-								{
-									"id": "append-text",
-									"objectClass": "Scores",
-									"sid": 106151902961389,
-									"parameters": {
-										"text": "\"    |    TimerThreshold: \"&TimerThreshold"
 									}
 								}
 							],
@@ -400,9 +284,9 @@
 								{
 									"id": "go-to-layout",
 									"objectClass": "System",
-									"sid": 644220249145625,
+									"sid": 250960073381231,
 									"parameters": {
-										"layout": "G2 Game"
+										"layout": "G0 Game"
 									}
 								}
 							],
@@ -424,45 +308,6 @@
 					"eventType": "block",
 					"conditions": [
 						{
-							"id": "on-object-clicked",
-							"objectClass": "Mouse",
-							"sid": 560573418170591,
-							"parameters": {
-								"mouse-button": "left",
-								"click-type": "clicked",
-								"object-clicked": "StartStop"
-							}
-						},
-						{
-							"id": "pick-by-unique-id",
-							"objectClass": "StartStop",
-							"sid": 190876437679086,
-							"parameters": {
-								"unique-id": "60"
-							}
-						}
-					],
-					"actions": [
-						{
-							"id": "reset-global-variables",
-							"objectClass": "System",
-							"sid": 879485356043357
-						},
-						{
-							"id": "go-to-layout",
-							"objectClass": "System",
-							"sid": 441751296815897,
-							"parameters": {
-								"layout": "Menu"
-							}
-						}
-					],
-					"sid": 623181239304918
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
 							"id": "on-start-of-layout",
 							"objectClass": "System",
 							"sid": 804962462580350
@@ -476,11 +321,8 @@
 						}
 					],
 					"sid": 610967479926441,
+					"disabled": true,
 					"children": [
-						{
-							"eventType": "comment",
-							"text": "This doesn't work right. I think I need to compare (Timer/TimerDiff) and (Timer/TimerThreshold), but I'm not sure. MAybe just need to attach them to button ending play"
-						},
 						{
 							"eventType": "block",
 							"conditions": [
@@ -489,7 +331,7 @@
 									"objectClass": "System",
 									"sid": 720694943122274,
 									"parameters": {
-										"first-value": "TimerDiff",
+										"first-value": "TimerEnd",
 										"comparison": 2,
 										"second-value": "TimerThreshold"
 									}
@@ -506,7 +348,8 @@
 									}
 								}
 							],
-							"sid": 491758693911519
+							"sid": 491758693911519,
+							"disabled": true
 						},
 						{
 							"eventType": "block",
@@ -516,7 +359,7 @@
 									"objectClass": "System",
 									"sid": 912216211670942,
 									"parameters": {
-										"first-value": "TimerDiff",
+										"first-value": "TimerEnd",
 										"comparison": 4,
 										"second-value": "TimerThreshold"
 									}
@@ -533,7 +376,8 @@
 									}
 								}
 							],
-							"sid": 890896151722658
+							"sid": 890896151722658,
+							"disabled": true
 						},
 						{
 							"eventType": "block",
@@ -560,21 +404,10 @@
 									}
 								}
 							],
-							"sid": 861232886276011
+							"sid": 861232886276011,
+							"disabled": true
 						}
 					]
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "on-start-of-layout",
-							"objectClass": "System",
-							"sid": 457820288816534
-						}
-					],
-					"actions": [],
-					"sid": 922458608504466
 				}
 			],
 			"sid": 913387191591792

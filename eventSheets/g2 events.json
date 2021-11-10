@@ -9,7 +9,7 @@
 			"eventType": "variable",
 			"name": "KitchenClick",
 			"type": "number",
-			"initialValue": "100",
+			"initialValue": "0",
 			"comment": "",
 			"isStatic": false,
 			"isConstant": false,
@@ -56,10 +56,10 @@
 				{
 					"id": "set-eventvar-value",
 					"objectClass": "System",
-					"sid": 546540471871746,
+					"sid": 722060220950922,
 					"parameters": {
 						"variable": "TimerIdeal",
-						"value": "floor(random(5, 30))"
+						"value": "floor(random(5, 15))"
 					}
 				},
 				{
@@ -118,14 +118,6 @@
 					"parameters": {
 						"text": "\" seconds here. Spend too much or too little time and you'll be caught ... with extreme prejudice.\" "
 					}
-				},
-				{
-					"id": "set-text",
-					"objectClass": "devisActive",
-					"sid": 295533588684567,
-					"parameters": {
-						"text": "\"timerThreshold: \" & TimerThreshold"
-					}
 				}
 			],
 			"sid": 422262200436800
@@ -152,6 +144,17 @@
 					"parameters": {
 						"layer": "2",
 						"visibility": "invisible"
+					}
+				},
+				{
+					"id": "play",
+					"objectClass": "Audio",
+					"sid": 863596170169579,
+					"parameters": {
+						"audio-file": "click1",
+						"loop": "not-looping",
+						"volume": "0",
+						"tag-optional": "\"\""
 					}
 				}
 			],
@@ -304,11 +307,25 @@
 						{
 							"id": "set-eventvar-value",
 							"objectClass": "System",
+							"sid": 836337258603696,
+							"parameters": {
+								"variable": "TimerEnd",
+								"value": "abs((round(Timer)))"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
 							"sid": 174648983417999,
 							"parameters": {
 								"variable": "IsActive",
 								"value": "3"
 							}
+						},
+						{
+							"id": "wait-for-previous-actions",
+							"objectClass": "System",
+							"sid": 481671628597403
 						},
 						{
 							"id": "stop",
@@ -1010,10 +1027,10 @@
 								{
 									"id": "add-to-eventvar",
 									"objectClass": "System",
-									"sid": 633906180134383,
+									"sid": 713020233378109,
 									"parameters": {
 										"variable": "KitchenClick",
-										"value": "1"
+										"value": "10"
 									}
 								},
 								{
@@ -1072,10 +1089,10 @@
 								{
 									"id": "add-to-eventvar",
 									"objectClass": "System",
-									"sid": 851749326882746,
+									"sid": 230951895633950,
 									"parameters": {
 										"variable": "KitchenClick",
-										"value": "-30"
+										"value": "-10"
 									}
 								},
 								{
@@ -1173,19 +1190,10 @@
 								{
 									"id": "add-to-eventvar",
 									"objectClass": "System",
-									"sid": 155424131876909,
+									"sid": 501561526007424,
 									"parameters": {
 										"variable": "KitchenClick",
-										"value": "1"
-									}
-								},
-								{
-									"id": "set-animation",
-									"objectClass": "smoke",
-									"sid": 650782999042437,
-									"parameters": {
-										"animation": "\"blank\"",
-										"from": "beginning"
+										"value": "10"
 									}
 								},
 								{
@@ -1209,19 +1217,19 @@
 								},
 								{
 									"id": "set-animation",
-									"objectClass": "Rays",
-									"sid": 555355010534421,
+									"objectClass": "Hotspot",
+									"sid": 710028627584377,
 									"parameters": {
-										"animation": "\"blank\"",
+										"animation": "\"MicrowaveBlank\"",
 										"from": "beginning"
 									}
 								},
 								{
 									"id": "set-animation",
-									"objectClass": "Hotspot",
-									"sid": 710028627584377,
+									"objectClass": "Rays",
+									"sid": 675315769896859,
 									"parameters": {
-										"animation": "\"MicrowaveBlank\"",
+										"animation": "\"blank\"",
 										"from": "beginning"
 									}
 								}
@@ -1244,10 +1252,10 @@
 								{
 									"id": "add-to-eventvar",
 									"objectClass": "System",
-									"sid": 823295278164209,
+									"sid": 809445878230990,
 									"parameters": {
 										"variable": "KitchenClick",
-										"value": "-30"
+										"value": "-10"
 									}
 								},
 								{
@@ -1345,10 +1353,10 @@
 								{
 									"id": "add-to-eventvar",
 									"objectClass": "System",
-									"sid": 307494154155988,
+									"sid": 215334814474148,
 									"parameters": {
 										"variable": "KitchenClick",
-										"value": "1"
+										"value": "10"
 									}
 								},
 								{
@@ -1407,10 +1415,10 @@
 								{
 									"id": "add-to-eventvar",
 									"objectClass": "System",
-									"sid": 556673831242803,
+									"sid": 998707955652132,
 									"parameters": {
 										"variable": "KitchenClick",
-										"value": "-30"
+										"value": "-10"
 									}
 								},
 								{
@@ -1554,12 +1562,9 @@
 					}
 				},
 				{
-					"id": "wait",
+					"id": "wait-for-previous-actions",
 					"objectClass": "System",
-					"sid": 535315315841427,
-					"parameters": {
-						"seconds": "1.0"
-					}
+					"sid": 849587689895142
 				},
 				{
 					"id": "wait",
@@ -1572,10 +1577,10 @@
 				{
 					"id": "set-eventvar-value",
 					"objectClass": "System",
-					"sid": 882880668074444,
+					"sid": 982034048735760,
 					"parameters": {
 						"variable": "endState",
-						"value": "2"
+						"value": "3"
 					}
 				},
 				{
@@ -1590,6 +1595,7 @@
 					"id": "stop",
 					"objectClass": "Audio",
 					"sid": 713665514203522,
+					"disabled": true,
 					"parameters": {
 						"tag": "\"Microwave\""
 					}
@@ -1598,6 +1604,7 @@
 					"id": "stop",
 					"objectClass": "Audio",
 					"sid": 121810957769766,
+					"disabled": true,
 					"parameters": {
 						"tag": "\"Stove\""
 					}
@@ -1606,6 +1613,7 @@
 					"id": "stop",
 					"objectClass": "Audio",
 					"sid": 755371327184788,
+					"disabled": true,
 					"parameters": {
 						"tag": "\"Fridge\""
 					}
@@ -1614,6 +1622,7 @@
 					"id": "stop",
 					"objectClass": "Audio",
 					"sid": 855185995981763,
+					"disabled": true,
 					"parameters": {
 						"tag": "\"Music\""
 					}

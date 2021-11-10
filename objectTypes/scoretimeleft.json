@@ -1,7 +1,7 @@
 {
-	"name": "devTimerDisplay",
+	"name": "scoreTimeLeft",
 	"plugin-id": "Text",
-	"sid": 453040927495878,
+	"sid": 640121586400575,
 	"isGlobal": false,
 	"instanceVariables": [],
 	"behaviorTypes": [],

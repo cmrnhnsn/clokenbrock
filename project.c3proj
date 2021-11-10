@@ -78,7 +78,14 @@
 			"Mouse",
 			"Audio",
 			"Rays",
-			"enterButtons"
+			"enterButtons",
+			"thief",
+			"tutStory",
+			"House",
+			"Bedroom",
+			"OFfice",
+			"Kitchen2",
+			"LivingRoom"
 		],
 		"subfolders": [
 			{
@@ -93,9 +100,6 @@
 				"items": [
 					"devButtonsStatesDisplay",
 					"ClickScoreDisplay",
-					"devisActive",
-					"devTimerDisplay",
-					"devTimerIdealDisplay",
 					"TimerScoreDisplay",
 					"TotalScoreDisplay"
 				],
@@ -104,18 +108,21 @@
 			},
 			{
 				"items": [
-					"endingBad",
-					"endingGood",
-					"KitchenClick",
+					"scoreGoalTime",
 					"KitchenGoal",
 					"KitchenStory",
 					"Play",
 					"SceneRandom",
 					"TimerGoal",
 					"WokeFamily",
-					"Scores",
+					"scoreTimeLeft",
 					"ScoreTitle",
-					"Instructions1"
+					"Instructions1",
+					"scoreClick",
+					"scoreTimeDiff",
+					"scoreTotalScore",
+					"endingGood",
+					"endingTimer"
 				],
 				"subfolders": [
 					{
@@ -180,8 +187,8 @@
 	},
 	"layouts": {
 		"items": [
-			"Layout 1",
 			"Menu",
+			"G0 Game",
 			"G1 Game",
 			"G2 Game",
 			"Score"
@@ -193,7 +200,8 @@
 			"EventMain",
 			"G1 Events",
 			"G2 Events",
-			"Score Events"
+			"Score Events",
+			"G0 Events"
 		],
 		"subfolders": []
 	},
@@ -258,6 +266,11 @@
 					"name": "Metronome 2.webm",
 					"type": "audio/webm; codecs=opus",
 					"sid": 741982892007157
+				},
+				{
+					"name": "Laugh.webm",
+					"type": "audio/webm; codecs=opus",
+					"sid": 779012920676413
 				}
 			],
 			"subfolders": []

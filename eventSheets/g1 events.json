@@ -34,10 +34,10 @@
 						{
 							"id": "set-eventvar-value",
 							"objectClass": "System",
-							"sid": 981922421450241,
+							"sid": 674980449894360,
 							"parameters": {
 								"variable": "TimerIdeal",
-								"value": "floor(random(5, 30))"
+								"value": "floor(random(5, 15))"
 							}
 						},
 						{

@@ -1,7 +1,7 @@
 {
-	"name": "Scores",
+	"name": "scoreGoalTime",
 	"plugin-id": "Text",
-	"sid": 640121586400575,
+	"sid": 767896072200462,
 	"isGlobal": false,
 	"instanceVariables": [],
 	"behaviorTypes": [],

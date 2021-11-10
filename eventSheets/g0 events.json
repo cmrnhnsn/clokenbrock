@@ -1,0 +1,588 @@
+{
+	"name": "G0 Events",
+	"events": [
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-start-of-layout",
+					"objectClass": "System",
+					"sid": 188963873332301
+				}
+			],
+			"actions": [
+				{
+					"id": "set-text",
+					"objectClass": "tutStory",
+					"sid": 506360809400426,
+					"parameters": {
+						"text": "\"You used to be a person\""
+					}
+				},
+				{
+					"id": "set-layer-visible",
+					"objectClass": "System",
+					"sid": 717654506872255,
+					"parameters": {
+						"layer": "2",
+						"visibility": "visible"
+					}
+				},
+				{
+					"id": "wait",
+					"objectClass": "System",
+					"sid": 751269903992513,
+					"parameters": {
+						"seconds": "0.5"
+					}
+				},
+				{
+					"id": "play",
+					"objectClass": "Audio",
+					"sid": 242074742474955,
+					"parameters": {
+						"audio-file": "Laugh",
+						"loop": "not-looping",
+						"volume": "-10",
+						"tag-optional": "\"manLaugh\""
+					}
+				},
+				{
+					"id": "wait",
+					"objectClass": "System",
+					"sid": 989806286245838,
+					"parameters": {
+						"seconds": "4"
+					}
+				},
+				{
+					"id": "set-text",
+					"objectClass": "tutStory",
+					"sid": 777941531922501,
+					"parameters": {
+						"text": "\"But you got turned into a cat\""
+					}
+				},
+				{
+					"id": "wait",
+					"objectClass": "System",
+					"sid": 496849705858579,
+					"parameters": {
+						"seconds": "1.0"
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "thief",
+					"sid": 878033755230589,
+					"parameters": {
+						"visibility": "invisible"
+					}
+				},
+				{
+					"id": "play",
+					"objectClass": "Audio",
+					"sid": 745037965290864,
+					"parameters": {
+						"audio-file": "goodMeow",
+						"loop": "not-looping",
+						"volume": "-10",
+						"tag-optional": "\"\""
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "Cat",
+					"sid": 752992771896996,
+					"parameters": {
+						"visibility": "visible"
+					}
+				},
+				{
+					"id": "wait",
+					"objectClass": "System",
+					"sid": 902553920496088,
+					"parameters": {
+						"seconds": "4"
+					}
+				},
+				{
+					"id": "set-text",
+					"objectClass": "tutStory",
+					"sid": 465436695017146,
+					"parameters": {
+						"text": "\"Now you've got to find your old body\""
+					}
+				},
+				{
+					"id": "wait",
+					"objectClass": "System",
+					"sid": 634629526684891,
+					"parameters": {
+						"seconds": "4"
+					}
+				},
+				{
+					"id": "set-text",
+					"objectClass": "tutStory",
+					"sid": 961694548295997,
+					"parameters": {
+						"text": "\"In this house\""
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "Cat",
+					"sid": 381203427367835,
+					"parameters": {
+						"visibility": "invisible"
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "House",
+					"sid": 559886751522906,
+					"parameters": {
+						"visibility": "visible"
+					}
+				},
+				{
+					"id": "wait",
+					"objectClass": "System",
+					"sid": 349720560163863,
+					"parameters": {
+						"seconds": "4"
+					}
+				},
+				{
+					"id": "set-text",
+					"objectClass": "tutStory",
+					"sid": 577074708219067,
+					"parameters": {
+						"text": "\"You'll go room by room\""
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "House",
+					"sid": 562820377159761,
+					"parameters": {
+						"visibility": "invisible"
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "Bedroom",
+					"sid": 434150443864655,
+					"parameters": {
+						"visibility": "visible"
+					}
+				},
+				{
+					"id": "wait",
+					"objectClass": "System",
+					"sid": 103803162742043,
+					"parameters": {
+						"seconds": "2"
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "Kitchen2",
+					"sid": 108686087699390,
+					"parameters": {
+						"visibility": "visible"
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "Bedroom",
+					"sid": 187366667610825,
+					"parameters": {
+						"visibility": "invisible"
+					}
+				},
+				{
+					"id": "wait",
+					"objectClass": "System",
+					"sid": 855064383956739,
+					"parameters": {
+						"seconds": "2"
+					}
+				},
+				{
+					"id": "set-text",
+					"objectClass": "tutStory",
+					"sid": 820722979231337,
+					"parameters": {
+						"text": "\"Keeping things quiet because ...\""
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "LivingRoom",
+					"sid": 617887414257370,
+					"parameters": {
+						"visibility": "visible"
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "Kitchen2",
+					"sid": 990403727100070,
+					"parameters": {
+						"visibility": "invisible"
+					}
+				},
+				{
+					"id": "wait",
+					"objectClass": "System",
+					"sid": 424781513152943,
+					"parameters": {
+						"seconds": "2"
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "OFfice",
+					"sid": 304496851962061,
+					"parameters": {
+						"visibility": "visible"
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "LivingRoom",
+					"sid": 103076033687101,
+					"parameters": {
+						"visibility": "invisible"
+					}
+				},
+				{
+					"id": "wait",
+					"objectClass": "System",
+					"sid": 796689368666739,
+					"parameters": {
+						"seconds": "2"
+					}
+				},
+				{
+					"id": "set-text",
+					"objectClass": "tutStory",
+					"sid": 396588439948199,
+					"parameters": {
+						"text": "\"Waking someone up is the end of the road for you\""
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "Eyes",
+					"sid": 389102126418096,
+					"parameters": {
+						"visibility": "visible"
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "OFfice",
+					"sid": 181495113268707,
+					"parameters": {
+						"visibility": "invisible"
+					}
+				},
+				{
+					"id": "set-animation",
+					"objectClass": "Eyes",
+					"sid": 460086650181765,
+					"parameters": {
+						"animation": "\"demo\"",
+						"from": "beginning"
+					}
+				},
+				{
+					"id": "play",
+					"objectClass": "Audio",
+					"sid": 135971721959121,
+					"parameters": {
+						"audio-file": "badMeow",
+						"loop": "not-looping",
+						"volume": "-10",
+						"tag-optional": "\"\""
+					}
+				},
+				{
+					"id": "wait",
+					"objectClass": "System",
+					"sid": 653139241088236,
+					"parameters": {
+						"seconds": "4"
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "Eyes",
+					"sid": 460035768864734,
+					"parameters": {
+						"visibility": "invisible"
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "Cat",
+					"sid": 992941449186643,
+					"parameters": {
+						"visibility": "visible"
+					}
+				},
+				{
+					"id": "set-text",
+					"objectClass": "tutStory",
+					"sid": 588382336132508,
+					"parameters": {
+						"text": "\"MOST IMPORTANTLY\""
+					}
+				},
+				{
+					"id": "wait",
+					"objectClass": "System",
+					"sid": 279194748083717,
+					"parameters": {
+						"seconds": "4"
+					}
+				},
+				{
+					"id": "set-text",
+					"objectClass": "tutStory",
+					"sid": 780332081418194,
+					"parameters": {
+						"text": "\"your cat body can only be in a room for a specific amount of time.\""
+					}
+				},
+				{
+					"id": "wait",
+					"objectClass": "System",
+					"sid": 164619527882277,
+					"parameters": {
+						"seconds": "4"
+					}
+				},
+				{
+					"id": "set-text",
+					"objectClass": "tutStory",
+					"sid": 514467981451230,
+					"parameters": {
+						"text": "\"When you ENTER A ROOM\""
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "Cat",
+					"sid": 330100611361814,
+					"parameters": {
+						"visibility": "invisible"
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "StartStop",
+					"sid": 777009898324512,
+					"parameters": {
+						"visibility": "visible"
+					}
+				},
+				{
+					"id": "wait",
+					"objectClass": "System",
+					"sid": 386834606276051,
+					"parameters": {
+						"seconds": "4"
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "StartStop",
+					"sid": 308785857893909,
+					"parameters": {
+						"visibility": "invisible"
+					}
+				},
+				{
+					"id": "set-text",
+					"objectClass": "tutStory",
+					"sid": 533837548656462,
+					"parameters": {
+						"text": "\"You will sense how long you have.\""
+					}
+				},
+				{
+					"id": "wait",
+					"objectClass": "System",
+					"sid": 571843452341384,
+					"parameters": {
+						"seconds": "4"
+					}
+				},
+				{
+					"id": "set-text",
+					"objectClass": "tutStory",
+					"sid": 455334179369692,
+					"parameters": {
+						"text": "\"Feel time passing and at just ... \""
+					}
+				},
+				{
+					"id": "play",
+					"objectClass": "Audio",
+					"sid": 657007430826236,
+					"parameters": {
+						"audio-file": "Metronome 2",
+						"loop": "not-looping",
+						"volume": "-10",
+						"tag-optional": "\"tutMetro\""
+					}
+				},
+				{
+					"id": "wait",
+					"objectClass": "System",
+					"sid": 915565002170622,
+					"parameters": {
+						"seconds": "2"
+					}
+				},
+				{
+					"id": "set-text",
+					"objectClass": "tutStory",
+					"sid": 227645866719693,
+					"parameters": {
+						"text": "\"the right ...\""
+					}
+				},
+				{
+					"id": "wait",
+					"objectClass": "System",
+					"sid": 156725052474428,
+					"parameters": {
+						"seconds": "2"
+					}
+				},
+				{
+					"id": "set-text",
+					"objectClass": "tutStory",
+					"sid": 365602107771363,
+					"parameters": {
+						"text": "\"time\""
+					}
+				},
+				{
+					"id": "wait",
+					"objectClass": "System",
+					"sid": 966342760958878,
+					"parameters": {
+						"seconds": "2"
+					}
+				},
+				{
+					"id": "set-text",
+					"objectClass": "tutStory",
+					"sid": 114344978186745,
+					"parameters": {
+						"text": "\"EXIT THE ROOM.\""
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "enterButtons",
+					"sid": 499926747279886,
+					"parameters": {
+						"visibility": "visible"
+					}
+				},
+				{
+					"id": "stop",
+					"objectClass": "Audio",
+					"sid": 905954579514691,
+					"parameters": {
+						"tag": "\"tutMetro\""
+					}
+				},
+				{
+					"id": "wait",
+					"objectClass": "System",
+					"sid": 306683592091515,
+					"parameters": {
+						"seconds": "4"
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "enterButtons",
+					"sid": 562919507490142,
+					"parameters": {
+						"visibility": "invisible"
+					}
+				},
+				{
+					"id": "set-text",
+					"objectClass": "tutStory",
+					"sid": 254784387973915,
+					"parameters": {
+						"text": "\"But be careful!\""
+					}
+				},
+				{
+					"id": "wait",
+					"objectClass": "System",
+					"sid": 382187539231446,
+					"parameters": {
+						"seconds": "4"
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "Cat",
+					"sid": 287731343440556,
+					"parameters": {
+						"visibility": "visible"
+					}
+				},
+				{
+					"id": "play",
+					"objectClass": "Audio",
+					"sid": 172531182611260,
+					"parameters": {
+						"audio-file": "badMeow",
+						"loop": "not-looping",
+						"volume": "-10",
+						"tag-optional": "\"\""
+					}
+				},
+				{
+					"id": "set-text",
+					"objectClass": "tutStory",
+					"sid": 979833284001153,
+					"parameters": {
+						"text": "\"Exiting too early or too late is certain doom!\""
+					}
+				},
+				{
+					"id": "wait",
+					"objectClass": "System",
+					"sid": 848475657535926,
+					"parameters": {
+						"seconds": "4"
+					}
+				},
+				{
+					"id": "set-text",
+					"objectClass": "tutStory",
+					"sid": 846893633351021,
+					"parameters": {
+						"text": "\"Ready to Play?\""
+					}
+				}
+			],
+			"sid": 191623048311461
+		}
+	],
+	"sid": 667350150226659
+}

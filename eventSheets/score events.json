@@ -6,385 +6,646 @@
 			"includeSheet": "EventMain"
 		},
 		{
-			"eventType": "comment",
-			"text": "Bad ending. Was not within timer threshold"
-		},
-		{
 			"eventType": "block",
 			"conditions": [
 				{
 					"id": "on-start-of-layout",
 					"objectClass": "System",
-					"sid": 175803872597878
-				},
-				{
-					"id": "compare-eventvar",
-					"objectClass": "System",
-					"sid": 523719715848158,
-					"parameters": {
-						"variable": "endState",
-						"comparison": 0,
-						"value": "3"
-					}
+					"sid": 254040577763213
 				}
 			],
 			"actions": [
 				{
-					"id": "set-layer-visible",
+					"id": "stop-all",
+					"objectClass": "Audio",
+					"sid": 965362374590320
+				},
+				{
+					"id": "set-eventvar-value",
 					"objectClass": "System",
-					"sid": 633810833393616,
+					"sid": 793244020504128,
 					"parameters": {
-						"layer": "3",
-						"visibility": "visible"
+						"variable": "TimerScore",
+						"value": "(TimerIdeal-TimerEnd)*Multiplier"
+					}
+				},
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 660131588624460,
+					"parameters": {
+						"variable": "TotalScore",
+						"value": "round((KitchenClick*5)+TimerScore)"
+					}
+				},
+				{
+					"id": "set-text",
+					"objectClass": "scoreGoalTime",
+					"sid": 586819963410989,
+					"parameters": {
+						"text": "\"Your Goal Time was: \" & TimerIdeal"
+					}
+				},
+				{
+					"id": "append-text",
+					"objectClass": "scoreGoalTime",
+					"sid": 156082458636786,
+					"parameters": {
+						"text": "\" seconds\""
+					}
+				},
+				{
+					"id": "set-text",
+					"objectClass": "scoreTimeLeft",
+					"sid": 995438994592773,
+					"parameters": {
+						"text": "\"You left the room after \" & abs(TimerIdeal - TimerEnd)"
+					}
+				},
+				{
+					"id": "append-text",
+					"objectClass": "scoreTimeLeft",
+					"sid": 471545793947095,
+					"parameters": {
+						"text": "\" seconds\""
+					}
+				},
+				{
+					"id": "set-text",
+					"objectClass": "scoreTimeDiff",
+					"sid": 916105970494499,
+					"parameters": {
+						"text": "\"So you were off by: \" & abs(TimerEnd)"
+					}
+				},
+				{
+					"id": "append-text",
+					"objectClass": "scoreTimeDiff",
+					"sid": 516267141709919,
+					"parameters": {
+						"text": "\" seconds\""
+					}
+				},
+				{
+					"id": "set-text",
+					"objectClass": "scoreClick",
+					"sid": 509804621876614,
+					"parameters": {
+						"text": "\"From clicking on noisemakers, you earned: \" &KitchenClick"
+					}
+				},
+				{
+					"id": "append-text",
+					"objectClass": "scoreClick",
+					"sid": 645637381888510,
+					"parameters": {
+						"text": "\" points\""
+					}
+				},
+				{
+					"id": "set-text",
+					"objectClass": "scoreTotalScore",
+					"sid": 372334822849920,
+					"parameters": {
+						"text": "\"So your total score was: \" &TotalScore"
 					}
 				}
 			],
-			"sid": 133506884870498,
+			"sid": 972831656672973,
 			"children": [
 				{
 					"eventType": "block",
 					"conditions": [
 						{
-							"id": "pick-by-unique-id",
-							"objectClass": "Cat",
-							"sid": 848850391876741,
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 506159120155183,
 							"parameters": {
-								"unique-id": "76"
+								"variable": "Timer",
+								"comparison": 2,
+								"value": "0"
 							}
 						}
 					],
 					"actions": [
 						{
-							"id": "set-opacity",
-							"objectClass": "Cat",
-							"sid": 313688773983968,
+							"id": "set-text",
+							"objectClass": "scoreTimeLeft",
+							"sid": 739290526143707,
 							"parameters": {
-								"opacity": "100"
+								"text": "\"You left the room after \" & TimerEnd"
 							}
 						},
 						{
-							"id": "wait",
+							"id": "append-text",
+							"objectClass": "scoreTimeLeft",
+							"sid": 992462560805294,
+							"parameters": {
+								"text": "\" seconds\""
+							}
+						}
+					],
+					"sid": 204706288019243
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-two-values",
 							"objectClass": "System",
-							"sid": 922079044059892,
+							"sid": 312974059305520,
 							"parameters": {
-								"seconds": "0.5"
+								"first-value": "TimerEnd",
+								"comparison": 4,
+								"second-value": "TimerThreshold"
 							}
-						},
+						}
+					],
+					"actions": [
 						{
-							"id": "set-opacity",
-							"objectClass": "Cat",
-							"sid": 547503631059549,
-							"parameters": {
-								"opacity": "66"
-							}
-						},
-						{
-							"id": "wait",
+							"id": "set-eventvar-value",
 							"objectClass": "System",
-							"sid": 351810348893909,
+							"sid": 964422746138349,
 							"parameters": {
-								"seconds": "0.5"
+								"variable": "endState",
+								"value": "3"
 							}
-						},
+						}
+					],
+					"sid": 917620917981345
+				},
+				{
+					"eventType": "block",
+					"conditions": [
 						{
-							"id": "set-opacity",
-							"objectClass": "Cat",
-							"sid": 368083266565464,
-							"parameters": {
-								"opacity": "33"
-							}
-						},
-						{
-							"id": "wait",
+							"id": "compare-two-values",
 							"objectClass": "System",
-							"sid": 417437797499483,
+							"sid": 434235985306987,
 							"parameters": {
-								"seconds": "0.5"
+								"first-value": "TimerEnd",
+								"comparison": 3,
+								"second-value": "TimerThreshold"
 							}
-						},
+						}
+					],
+					"actions": [
 						{
-							"id": "set-opacity",
-							"objectClass": "Cat",
-							"sid": 724736415906696,
-							"parameters": {
-								"opacity": "0"
-							}
-						},
-						{
-							"id": "play",
-							"objectClass": "Audio",
-							"sid": 402828153613681,
-							"parameters": {
-								"audio-file": "badMeow",
-								"loop": "not-looping",
-								"volume": "-10",
-								"tag-optional": "\"\""
-							}
-						},
-						{
-							"id": "wait",
+							"id": "set-eventvar-value",
 							"objectClass": "System",
-							"sid": 611700658798757,
+							"sid": 324069725299748,
 							"parameters": {
-								"seconds": "1"
+								"variable": "endState",
+								"value": "1"
 							}
-						},
+						}
+					],
+					"sid": 431698400213643
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 847582237339295,
+							"parameters": {
+								"variable": "KitchenClick",
+								"comparison": 3,
+								"value": "0"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 588132257406544,
+							"parameters": {
+								"variable": "endState",
+								"value": "2"
+							}
+						}
+					],
+					"sid": 506565566935059,
+					"disabled": true
+				},
+				{
+					"eventType": "comment",
+					"text": "Bad ending. Was not within timer threshold"
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 447229947329607,
+							"parameters": {
+								"variable": "endState",
+								"comparison": 0,
+								"value": "3"
+							}
+						}
+					],
+					"actions": [
 						{
 							"id": "set-layer-visible",
 							"objectClass": "System",
-							"sid": 686857075225623,
+							"sid": 339082763739621,
 							"parameters": {
 								"layer": "3",
-								"visibility": "invisible"
-							}
-						},
-						{
-							"id": "set-layer-visible",
-							"objectClass": "System",
-							"sid": 201615555046817,
-							"parameters": {
-								"layer": "1",
 								"visibility": "visible"
 							}
 						}
 					],
-					"sid": 641026632004691
-				}
-			]
-		},
-		{
-			"eventType": "comment",
-			"text": "Bad ending. Woke daddy"
-		},
-		{
-			"eventType": "block",
-			"conditions": [
-				{
-					"id": "on-start-of-layout",
-					"objectClass": "System",
-					"sid": 166114512786838
+					"sid": 496463053052606,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "pick-by-unique-id",
+									"objectClass": "Cat",
+									"sid": 704378267026148,
+									"parameters": {
+										"unique-id": "76"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-opacity",
+									"objectClass": "Cat",
+									"sid": 147150744899718,
+									"parameters": {
+										"opacity": "100"
+									}
+								},
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 834373581209032,
+									"parameters": {
+										"seconds": "1"
+									}
+								},
+								{
+									"id": "set-opacity",
+									"objectClass": "Cat",
+									"sid": 410564316261753,
+									"parameters": {
+										"opacity": "66"
+									}
+								},
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 562135673187273,
+									"parameters": {
+										"seconds": "1"
+									}
+								},
+								{
+									"id": "set-opacity",
+									"objectClass": "Cat",
+									"sid": 501376116115511,
+									"parameters": {
+										"opacity": "33"
+									}
+								},
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 985679466149682,
+									"parameters": {
+										"seconds": "1"
+									}
+								},
+								{
+									"id": "set-opacity",
+									"objectClass": "Cat",
+									"sid": 836113010631504,
+									"parameters": {
+										"opacity": "0"
+									}
+								},
+								{
+									"id": "play",
+									"objectClass": "Audio",
+									"sid": 262045558467613,
+									"parameters": {
+										"audio-file": "badMeow",
+										"loop": "not-looping",
+										"volume": "-10",
+										"tag-optional": "\"\""
+									}
+								},
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 854696166566002,
+									"parameters": {
+										"seconds": "1"
+									}
+								},
+								{
+									"id": "set-layer-visible",
+									"objectClass": "System",
+									"sid": 458215617744998,
+									"parameters": {
+										"layer": "3",
+										"visibility": "invisible"
+									}
+								},
+								{
+									"id": "set-layer-visible",
+									"objectClass": "System",
+									"sid": 685085891271606,
+									"parameters": {
+										"layer": "1",
+										"visibility": "visible"
+									}
+								}
+							],
+							"sid": 262845233502486
+						}
+					]
 				},
 				{
-					"id": "compare-eventvar",
-					"objectClass": "System",
-					"sid": 908212941879730,
-					"parameters": {
-						"variable": "endState",
-						"comparison": 0,
-						"value": "2"
-					}
-				}
-			],
-			"actions": [
-				{
-					"id": "set-layer-visible",
-					"objectClass": "System",
-					"sid": 749947958120631,
-					"parameters": {
-						"layer": "2",
-						"visibility": "visible"
-					}
-				}
-			],
-			"sid": 552928552061751,
-			"children": [
+					"eventType": "comment",
+					"text": "Bad ending. Woke daddy"
+				},
 				{
 					"eventType": "block",
 					"conditions": [
 						{
-							"id": "pick-by-unique-id",
-							"objectClass": "Cat",
-							"sid": 382403923183550,
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 784745442207967,
 							"parameters": {
-								"unique-id": "58"
+								"variable": "endState",
+								"comparison": 0,
+								"value": "2"
 							}
 						}
 					],
 					"actions": [
 						{
-							"id": "wait",
-							"objectClass": "System",
-							"sid": 672294334610125,
-							"parameters": {
-								"seconds": "1"
-							}
-						},
-						{
-							"id": "set-visible",
-							"objectClass": "jail",
-							"sid": 420149310364036,
-							"parameters": {
-								"visibility": "visible"
-							}
-						},
-						{
-							"id": "play",
-							"objectClass": "Audio",
-							"sid": 461986443237502,
-							"parameters": {
-								"audio-file": "badMeow",
-								"loop": "not-looping",
-								"volume": "-10",
-								"tag-optional": "\"\""
-							}
-						},
-						{
-							"id": "wait",
-							"objectClass": "System",
-							"sid": 718864898837811,
-							"parameters": {
-								"seconds": "1"
-							}
-						},
-						{
 							"id": "set-layer-visible",
 							"objectClass": "System",
-							"sid": 807132708394926,
+							"sid": 295832741636032,
 							"parameters": {
 								"layer": "2",
-								"visibility": "invisible"
-							}
-						},
-						{
-							"id": "set-layer-visible",
-							"objectClass": "System",
-							"sid": 249798627039288,
-							"parameters": {
-								"layer": "1",
 								"visibility": "visible"
 							}
 						}
 					],
-					"sid": 106805797431092
-				}
-			]
-		},
-		{
-			"eventType": "comment",
-			"text": "Good ending. Didn't wake daddy and was within timer threshold"
-		},
-		{
-			"eventType": "block",
-			"conditions": [
-				{
-					"id": "on-start-of-layout",
-					"objectClass": "System",
-					"sid": 413734416817619
+					"sid": 633586493038592,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "pick-by-unique-id",
+									"objectClass": "Cat",
+									"sid": 230145894533189,
+									"parameters": {
+										"unique-id": "58"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 617648913606077,
+									"parameters": {
+										"seconds": "1"
+									}
+								},
+								{
+									"id": "set-visible",
+									"objectClass": "jail",
+									"sid": 494115853885998,
+									"parameters": {
+										"visibility": "visible"
+									}
+								},
+								{
+									"id": "play",
+									"objectClass": "Audio",
+									"sid": 773305321944801,
+									"parameters": {
+										"audio-file": "badMeow",
+										"loop": "not-looping",
+										"volume": "-10",
+										"tag-optional": "\"\""
+									}
+								},
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 150572378051487,
+									"parameters": {
+										"seconds": "1"
+									}
+								},
+								{
+									"id": "set-layer-visible",
+									"objectClass": "System",
+									"sid": 574823053021721,
+									"parameters": {
+										"layer": "2",
+										"visibility": "invisible"
+									}
+								},
+								{
+									"id": "set-layer-visible",
+									"objectClass": "System",
+									"sid": 580724325373404,
+									"parameters": {
+										"layer": "1",
+										"visibility": "visible"
+									}
+								}
+							],
+							"sid": 174056509286716
+						}
+					]
 				},
 				{
-					"id": "compare-eventvar",
-					"objectClass": "System",
-					"sid": 960221385529528,
-					"parameters": {
-						"variable": "endState",
-						"comparison": 0,
-						"value": "1"
-					}
-				}
-			],
-			"actions": [
-				{
-					"id": "set-layer-visible",
-					"objectClass": "System",
-					"sid": 962967365190547,
-					"parameters": {
-						"layer": "4",
-						"visibility": "visible"
-					}
-				}
-			],
-			"sid": 875191118594546,
-			"children": [
+					"eventType": "comment",
+					"text": "Good ending. Didn't wake daddy and was within timer threshold"
+				},
 				{
 					"eventType": "block",
 					"conditions": [
 						{
-							"id": "pick-by-unique-id",
-							"objectClass": "Cat",
-							"sid": 588835796399323,
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 822148074327336,
 							"parameters": {
-								"unique-id": "77"
+								"variable": "endState",
+								"comparison": 0,
+								"value": "1"
 							}
 						}
 					],
 					"actions": [
 						{
-							"id": "wait",
-							"objectClass": "System",
-							"sid": 719669260288566,
-							"parameters": {
-								"seconds": "1"
-							}
-						},
-						{
-							"id": "play",
-							"objectClass": "Audio",
-							"sid": 891447676698913,
-							"parameters": {
-								"audio-file": "goodMeow",
-								"loop": "not-looping",
-								"volume": "-10",
-								"tag-optional": "\"Success\""
-							}
-						},
-						{
-							"id": "set-animation",
-							"objectClass": "Cat",
-							"sid": 977571050304838,
-							"parameters": {
-								"animation": "\"Happy\"",
-								"from": "beginning"
-							}
-						},
-						{
-							"id": "wait",
-							"objectClass": "System",
-							"sid": 141067814460060,
-							"parameters": {
-								"seconds": "1"
-							}
-						},
-						{
-							"id": "play",
-							"objectClass": "Audio",
-							"sid": 409524080626099,
-							"parameters": {
-								"audio-file": "goodMeow",
-								"loop": "not-looping",
-								"volume": "-10",
-								"tag-optional": "\"Success\""
-							}
-						},
-						{
-							"id": "wait",
-							"objectClass": "System",
-							"sid": 562923457681137,
-							"parameters": {
-								"seconds": "1"
-							}
-						},
-						{
 							"id": "set-layer-visible",
 							"objectClass": "System",
-							"sid": 753800107223707,
+							"sid": 130393486225175,
 							"parameters": {
 								"layer": "4",
-								"visibility": "invisible"
-							}
-						},
-						{
-							"id": "set-layer-visible",
-							"objectClass": "System",
-							"sid": 445467630543592,
-							"parameters": {
-								"layer": "1",
 								"visibility": "visible"
 							}
 						}
 					],
-					"sid": 834046377997515
+					"sid": 688265507845797,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "pick-by-unique-id",
+									"objectClass": "Cat",
+									"sid": 118579944146765,
+									"parameters": {
+										"unique-id": "77"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 123028758848940,
+									"parameters": {
+										"seconds": "1"
+									}
+								},
+								{
+									"id": "play",
+									"objectClass": "Audio",
+									"sid": 750136548758503,
+									"parameters": {
+										"audio-file": "goodMeow",
+										"loop": "not-looping",
+										"volume": "-10",
+										"tag-optional": "\"Success\""
+									}
+								},
+								{
+									"id": "set-animation",
+									"objectClass": "Cat",
+									"sid": 543109952820824,
+									"parameters": {
+										"animation": "\"Happy\"",
+										"from": "beginning"
+									}
+								},
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 503716980517498,
+									"parameters": {
+										"seconds": "1"
+									}
+								},
+								{
+									"id": "play",
+									"objectClass": "Audio",
+									"sid": 804866323559553,
+									"parameters": {
+										"audio-file": "goodMeow",
+										"loop": "not-looping",
+										"volume": "-10",
+										"tag-optional": "\"Success\""
+									}
+								},
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 883910636590115,
+									"parameters": {
+										"seconds": "1"
+									}
+								},
+								{
+									"id": "set-layer-visible",
+									"objectClass": "System",
+									"sid": 810730215481913,
+									"parameters": {
+										"layer": "4",
+										"visibility": "invisible"
+									}
+								},
+								{
+									"id": "set-layer-visible",
+									"objectClass": "System",
+									"sid": 881605419656910,
+									"parameters": {
+										"layer": "1",
+										"visibility": "visible"
+									}
+								}
+							],
+							"sid": 354290192571752
+						}
+					]
 				}
 			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-object-clicked",
+					"objectClass": "Mouse",
+					"sid": 560573418170591,
+					"parameters": {
+						"mouse-button": "left",
+						"click-type": "clicked",
+						"object-clicked": "StartStop"
+					}
+				},
+				{
+					"id": "pick-by-unique-id",
+					"objectClass": "StartStop",
+					"sid": 190876437679086,
+					"parameters": {
+						"unique-id": "60"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "reset-global-variables",
+					"objectClass": "System",
+					"sid": 879485356043357
+				},
+				{
+					"id": "go-to-layout",
+					"objectClass": "System",
+					"sid": 441751296815897,
+					"parameters": {
+						"layout": "Menu"
+					}
+				},
+				{
+					"id": "play",
+					"objectClass": "Audio",
+					"sid": 390597308655210,
+					"parameters": {
+						"audio-file": "click1",
+						"loop": "not-looping",
+						"volume": "0",
+						"tag-optional": "\"\""
+					}
+				}
+			],
+			"sid": 623181239304918
 		}
 	],
 	"sid": 120029339734824
