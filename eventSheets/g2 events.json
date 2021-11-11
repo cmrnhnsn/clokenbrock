@@ -349,7 +349,11 @@
 						{
 							"id": "play",
 							"objectClass": "Audio",
+<<<<<<< Updated upstream
 							"sid": 375880275759581,
+=======
+							"sid": 505846642792970,
+>>>>>>> Stashed changes
 							"parameters": {
 								"audio-file": "Metronome 2",
 								"loop": "looping",
@@ -1923,10 +1927,10 @@
 				{
 					"id": "set-eventvar-value",
 					"objectClass": "System",
-					"sid": 982034048735760,
+					"sid": 356620649669791,
 					"parameters": {
 						"variable": "endState",
-						"value": "3"
+						"value": "2"
 					}
 				},
 				{
