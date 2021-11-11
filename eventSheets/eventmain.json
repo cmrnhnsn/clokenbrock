@@ -112,6 +112,16 @@
 			"sid": 525921263153587
 		},
 		{
+			"eventType": "variable",
+			"name": "alwaysPosTimer",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "Stupid way of capturing total time elapsed while game is active",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 213482554620552
+		},
+		{
 			"eventType": "group",
 			"disabled": false,
 			"title": "Global",
@@ -160,6 +170,15 @@
 									"sid": 136048197859355,
 									"parameters": {
 										"variable": "Timer",
+										"value": "dt"
+									}
+								},
+								{
+									"id": "add-to-eventvar",
+									"objectClass": "System",
+									"sid": 151683597049597,
+									"parameters": {
+										"variable": "alwaysPosTimer",
 										"value": "dt"
 									}
 								}

@@ -21,6 +21,15 @@
 					"sid": 965362374590320
 				},
 				{
+					"id": "set-layer-visible",
+					"objectClass": "System",
+					"sid": 397938233429454,
+					"parameters": {
+						"layer": "1",
+						"visibility": "invisible"
+					}
+				},
+				{
 					"id": "set-eventvar-value",
 					"objectClass": "System",
 					"sid": 793244020504128,
@@ -57,9 +66,9 @@
 				{
 					"id": "set-text",
 					"objectClass": "scoreTimeLeft",
-					"sid": 995438994592773,
+					"sid": 359762696111793,
 					"parameters": {
-						"text": "\"You left the room after \" & abs(TimerIdeal - TimerEnd)"
+						"text": "\"You left the room after \" & round(alwaysPosTimer)"
 					}
 				},
 				{
@@ -131,9 +140,9 @@
 						{
 							"id": "set-text",
 							"objectClass": "scoreTimeLeft",
-							"sid": 739290526143707,
+							"sid": 325323634817869,
 							"parameters": {
-								"text": "\"You left the room after \" & TimerEnd"
+								"text": "\"You left the room after \" & round(alwaysPosTimer)"
 							}
 						},
 						{
@@ -628,9 +637,9 @@
 				{
 					"id": "go-to-layout",
 					"objectClass": "System",
-					"sid": 441751296815897,
+					"sid": 134514423299467,
 					"parameters": {
-						"layout": "Menu"
+						"layout": "G2 Game"
 					}
 				},
 				{
@@ -646,6 +655,56 @@
 				}
 			],
 			"sid": 623181239304918
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-object-clicked",
+					"objectClass": "Mouse",
+					"sid": 116751698781310,
+					"parameters": {
+						"mouse-button": "left",
+						"click-type": "clicked",
+						"object-clicked": "enterButtons"
+					}
+				},
+				{
+					"id": "pick-by-unique-id",
+					"objectClass": "enterButtons",
+					"sid": 856303717156184,
+					"parameters": {
+						"unique-id": "81"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "reset-global-variables",
+					"objectClass": "System",
+					"sid": 305345033361054
+				},
+				{
+					"id": "go-to-layout",
+					"objectClass": "System",
+					"sid": 293920323598541,
+					"parameters": {
+						"layout": "Menu"
+					}
+				},
+				{
+					"id": "play",
+					"objectClass": "Audio",
+					"sid": 804550113008737,
+					"parameters": {
+						"audio-file": "click1",
+						"loop": "not-looping",
+						"volume": "0",
+						"tag-optional": "\"\""
+					}
+				}
+			],
+			"sid": 160941422254819
 		}
 	],
 	"sid": 120029339734824

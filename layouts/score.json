@@ -115,10 +115,10 @@
 				{
 					"type": "scoreTimeLeft",
 					"properties": {
-						"text": "You left the room with: ",
+						"text": "You left the room after: ",
 						"enable-bbcode": true,
 						"font": "Impact",
-						"size": 12,
+						"size": 20,
 						"line-height": 0,
 						"bold": false,
 						"italic": false,
@@ -139,7 +139,7 @@
 					"behaviors": {},
 					"world": {
 						"x": 80,
-						"y": 139.81154811610367,
+						"y": 145.81154811610367,
 						"width": 456.1269399995369,
 						"height": 29.03734336256767,
 						"originX": 0,
@@ -169,8 +169,8 @@
 					"world": {
 						"x": 688.7915822324971,
 						"y": 419.2441221544623,
-						"width": 281.67156741143316,
-						"height": 78.78342501415653,
+						"width": 300,
+						"height": 80,
 						"originX": 0.49333333333333335,
 						"originY": 0.5303030303030303,
 						"color": [
@@ -189,7 +189,7 @@
 						"text": "Your Goal Time was:",
 						"enable-bbcode": true,
 						"font": "Impact",
-						"size": 12,
+						"size": 20,
 						"line-height": 0,
 						"bold": false,
 						"italic": false,
@@ -231,7 +231,7 @@
 						"text": "So you were off by: ",
 						"enable-bbcode": true,
 						"font": "Impact",
-						"size": 12,
+						"size": 20,
 						"line-height": 0,
 						"bold": false,
 						"italic": false,
@@ -252,7 +252,7 @@
 					"behaviors": {},
 					"world": {
 						"x": 80,
-						"y": 172.9613545458974,
+						"y": 179.9613545458974,
 						"width": 722.8870552574806,
 						"height": 30,
 						"originX": 0,
@@ -273,7 +273,7 @@
 						"text": "From clicking on noisemakers, you earned: ",
 						"enable-bbcode": true,
 						"font": "Impact",
-						"size": 12,
+						"size": 20,
 						"line-height": 0,
 						"bold": false,
 						"italic": false,
@@ -294,7 +294,7 @@
 					"behaviors": {},
 					"world": {
 						"x": 80,
-						"y": 205.03567368751249,
+						"y": 215.03567368751249,
 						"width": 739.2018582677658,
 						"height": 30,
 						"originX": 0,
@@ -315,7 +315,7 @@
 						"text": "So your total score was: ",
 						"enable-bbcode": true,
 						"font": "Impact",
-						"size": 12,
+						"size": 20,
 						"line-height": 0,
 						"bold": false,
 						"italic": false,
@@ -336,11 +336,40 @@
 					"behaviors": {},
 					"world": {
 						"x": 80,
-						"y": 258.7028302895335,
+						"y": 270.7028302895335,
 						"width": 337,
 						"height": 30,
 						"originX": 0,
 						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "enterButtons",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "mainmenu",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 81,
+					"instanceVariables": {},
+					"behaviors": {},
+					"world": {
+						"x": 397.47617835887365,
+						"y": 419.86955396103855,
+						"width": 280,
+						"height": 70,
+						"originX": 0.5,
+						"originY": 0.5,
 						"color": [
 							1,
 							1,

@@ -107,7 +107,10 @@
 					},
 					"uid": 20,
 					"instanceVariables": {
-						"Active": 0
+						"Active": 0,
+						"fhp": 1,
+						"mhp": 1,
+						"shp": 1
 					},
 					"behaviors": {},
 					"world": {
@@ -227,7 +230,10 @@
 					},
 					"uid": 32,
 					"instanceVariables": {
-						"Active": 0
+						"Active": 0,
+						"fhp": 1,
+						"mhp": 1,
+						"shp": 1
 					},
 					"behaviors": {},
 					"world": {
@@ -300,7 +306,10 @@
 					},
 					"uid": 31,
 					"instanceVariables": {
-						"Active": 0
+						"Active": 0,
+						"fhp": 1,
+						"mhp": 1,
+						"shp": 1
 					},
 					"behaviors": {},
 					"world": {
@@ -346,35 +355,6 @@
 							1,
 							1,
 							0.7
-						],
-						"angle": 0,
-						"zElevation": 0
-					}
-				},
-				{
-					"type": "StartStop",
-					"properties": {
-						"initially-visible": true,
-						"initial-animation": "Start",
-						"initial-frame": 0,
-						"enable-collisions": true,
-						"live-preview": false
-					},
-					"uid": 27,
-					"instanceVariables": {},
-					"behaviors": {},
-					"world": {
-						"x": 142,
-						"y": 120,
-						"width": 249.47118653253216,
-						"height": 116.3440287119099,
-						"originX": 0.49031600407747195,
-						"originY": 0.4682274247491639,
-						"color": [
-							1,
-							1,
-							1,
-							1
 						],
 						"angle": 0,
 						"zElevation": 0
@@ -454,10 +434,10 @@
 					"instanceVariables": {},
 					"behaviors": {},
 					"world": {
-						"x": 550.5,
-						"y": 152.5,
-						"width": 567,
-						"height": 302,
+						"x": 548.8937846551015,
+						"y": 205.8591468725187,
+						"width": 564.3473774340647,
+						"height": 355.6107058664851,
 						"originX": 0.5,
 						"originY": 0.5,
 						"color": [
@@ -475,19 +455,19 @@
 					"properties": {
 						"text": "Kitchen Goal",
 						"enable-bbcode": true,
-						"font": "Arial",
-						"size": 12,
+						"font": "Impact",
+						"size": 40,
 						"line-height": 0,
 						"bold": false,
 						"italic": false,
 						"color": [
-							0,
-							0,
-							0,
+							1,
+							0.8705882352941177,
+							0.00784313725490196,
 							1
 						],
-						"horizontal-alignment": "left",
-						"vertical-alignment": "top",
+						"horizontal-alignment": "center",
+						"vertical-alignment": "center",
 						"wrapping": "word",
 						"initially-visible": true,
 						"origin": "top-left"
@@ -496,10 +476,10 @@
 					"instanceVariables": {},
 					"behaviors": {},
 					"world": {
-						"x": 283,
-						"y": 9,
-						"width": 536,
-						"height": 74,
+						"x": 317.94178310748816,
+						"y": 33.125912056610204,
+						"width": 474.0469580918809,
+						"height": 219.13661895474635,
 						"originX": 0,
 						"originY": 0,
 						"color": [
@@ -515,20 +495,20 @@
 				{
 					"type": "KitchenStory",
 					"properties": {
-						"text": "Press the Start button to enter the room and begin the timer. When you think you've spent enough time here, hit Stop.\n\nWhile you're here don't wake the property owners, either. They pay their taxes. \n\nIf you don't stop their kitchen from making noise, they'll want a snack and they will find you. You'll go to jail.\n\nListen for noise makers and click on them to hush em up. Failure is an option, but not for long.",
+						"text": "Enter Room to begin the timer.",
 						"enable-bbcode": true,
-						"font": "Arial",
-						"size": 12,
-						"line-height": 0,
+						"font": "Impact",
+						"size": 16,
+						"line-height": 8,
 						"bold": false,
 						"italic": false,
 						"color": [
-							0,
-							0,
-							0,
+							1,
+							1,
+							1,
 							1
 						],
-						"horizontal-alignment": "left",
+						"horizontal-alignment": "center",
 						"vertical-alignment": "top",
 						"wrapping": "word",
 						"initially-visible": true,
@@ -538,10 +518,165 @@
 					"instanceVariables": {},
 					"behaviors": {},
 					"world": {
-						"x": 289,
-						"y": 65,
+						"x": 285.29552237268217,
+						"y": 339.6997209527729,
 						"width": 520,
-						"height": 265,
+						"height": 27.013892457841678,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "StartStop",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Start",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 27,
+					"instanceVariables": {},
+					"behaviors": {},
+					"world": {
+						"x": 539.6119241778938,
+						"y": 289.6061531772506,
+						"width": 249.47118653253216,
+						"height": 102.77988996278746,
+						"originX": 0.49031600407747195,
+						"originY": 0.4682274247491639,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "KitchenTask",
+					"properties": {
+						"text": "Click noisemakers to stop from waking people up! ",
+						"enable-bbcode": true,
+						"font": "Impact",
+						"size": 20,
+						"line-height": 0,
+						"bold": false,
+						"italic": false,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"horizontal-alignment": "center",
+						"vertical-alignment": "top",
+						"wrapping": "word",
+						"initially-visible": false,
+						"origin": "top-left"
+					},
+					"uid": 24,
+					"instanceVariables": {},
+					"behaviors": {},
+					"world": {
+						"x": 356.47026034791395,
+						"y": 53.51589207106518,
+						"width": 374.54504121587036,
+						"height": 87.88079123115801,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "KitchenTask",
+					"properties": {
+						"text": "Don't spend too much or too little time before you Exit Room. ",
+						"enable-bbcode": true,
+						"font": "Impact",
+						"size": 20,
+						"line-height": 0,
+						"bold": false,
+						"italic": false,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"horizontal-alignment": "center",
+						"vertical-alignment": "top",
+						"wrapping": "word",
+						"initially-visible": false,
+						"origin": "top-left"
+					},
+					"uid": 25,
+					"instanceVariables": {},
+					"behaviors": {},
+					"world": {
+						"x": 358.97497777117223,
+						"y": 279.4733033206713,
+						"width": 374.54504121587036,
+						"height": 87.88079123115801,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "introCountdown",
+					"properties": {
+						"text": "3",
+						"enable-bbcode": true,
+						"font": "Impact",
+						"size": 120,
+						"line-height": 0,
+						"bold": false,
+						"italic": false,
+						"color": [
+							1,
+							0.8666666666666667,
+							0,
+							1
+						],
+						"horizontal-alignment": "center",
+						"vertical-alignment": "center",
+						"wrapping": "word",
+						"initially-visible": false,
+						"origin": "top-left"
+					},
+					"uid": 51,
+					"instanceVariables": {},
+					"behaviors": {},
+					"world": {
+						"x": 315.5108929998375,
+						"y": 125.32930306468285,
+						"width": 454.33512417660705,
+						"height": 159.0983705989317,
 						"originX": 0,
 						"originY": 0,
 						"color": [

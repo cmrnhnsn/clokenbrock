@@ -29,6 +29,17 @@
 					}
 				},
 				{
+					"id": "play",
+					"objectClass": "Audio",
+					"sid": 568560023717163,
+					"parameters": {
+						"audio-file": "boleroshort",
+						"loop": "looping",
+						"volume": "-10",
+						"tag-optional": "\"bolero\""
+					}
+				},
+				{
 					"id": "wait",
 					"objectClass": "System",
 					"sid": 751269903992513,
@@ -291,23 +302,23 @@
 					}
 				},
 				{
+					"id": "play",
+					"objectClass": "Audio",
+					"sid": 290436913874492,
+					"parameters": {
+						"audio-file": "Grumble",
+						"loop": "not-looping",
+						"volume": "-15",
+						"tag-optional": "\"\""
+					}
+				},
+				{
 					"id": "set-animation",
 					"objectClass": "Eyes",
 					"sid": 460086650181765,
 					"parameters": {
 						"animation": "\"demo\"",
 						"from": "beginning"
-					}
-				},
-				{
-					"id": "play",
-					"objectClass": "Audio",
-					"sid": 135971721959121,
-					"parameters": {
-						"audio-file": "badMeow",
-						"loop": "not-looping",
-						"volume": "-10",
-						"tag-optional": "\"\""
 					}
 				},
 				{
@@ -400,6 +411,14 @@
 				},
 				{
 					"id": "set-visible",
+					"objectClass": "tutTime",
+					"sid": 684829511837708,
+					"parameters": {
+						"visibility": "visible"
+					}
+				},
+				{
+					"id": "set-visible",
 					"objectClass": "StartStop",
 					"sid": 308785857893909,
 					"parameters": {
@@ -423,6 +442,15 @@
 					}
 				},
 				{
+					"id": "set-volume",
+					"objectClass": "Audio",
+					"sid": 376501070494843,
+					"parameters": {
+						"tag": "\"bolero\"",
+						"db": "-50"
+					}
+				},
+				{
 					"id": "set-text",
 					"objectClass": "tutStory",
 					"sid": 455334179369692,
@@ -433,12 +461,36 @@
 				{
 					"id": "play",
 					"objectClass": "Audio",
-					"sid": 657007430826236,
+					"sid": 435313693943388,
 					"parameters": {
 						"audio-file": "Metronome 2",
 						"loop": "not-looping",
-						"volume": "-10",
+						"volume": "-15",
 						"tag-optional": "\"tutMetro\""
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "tutTime",
+					"sid": 978231671281338,
+					"parameters": {
+						"visibility": "invisible"
+					}
+				},
+				{
+					"id": "set-scale",
+					"objectClass": "enterButtons",
+					"sid": 876397459943941,
+					"parameters": {
+						"scale": "0.25"
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "enterButtons",
+					"sid": 805009032622250,
+					"parameters": {
+						"visibility": "visible"
 					}
 				},
 				{
@@ -447,6 +499,14 @@
 					"sid": 915565002170622,
 					"parameters": {
 						"seconds": "2"
+					}
+				},
+				{
+					"id": "set-scale",
+					"objectClass": "enterButtons",
+					"sid": 650443757886817,
+					"parameters": {
+						"scale": "0.33"
 					}
 				},
 				{
@@ -466,6 +526,14 @@
 					}
 				},
 				{
+					"id": "set-scale",
+					"objectClass": "enterButtons",
+					"sid": 238211739292693,
+					"parameters": {
+						"scale": "0.35"
+					}
+				},
+				{
 					"id": "set-text",
 					"objectClass": "tutStory",
 					"sid": 365602107771363,
@@ -482,19 +550,19 @@
 					}
 				},
 				{
-					"id": "set-text",
-					"objectClass": "tutStory",
-					"sid": 114344978186745,
+					"id": "set-scale",
+					"objectClass": "enterButtons",
+					"sid": 406427220067704,
 					"parameters": {
-						"text": "\"EXIT THE ROOM.\""
+						"scale": "0.45"
 					}
 				},
 				{
-					"id": "set-visible",
-					"objectClass": "enterButtons",
-					"sid": 499926747279886,
+					"id": "set-text",
+					"objectClass": "tutStory",
+					"sid": 415802562835602,
 					"parameters": {
-						"visibility": "visible"
+						"text": "\"Get out of there!\""
 					}
 				},
 				{
@@ -506,11 +574,28 @@
 					}
 				},
 				{
+					"id": "set-volume",
+					"objectClass": "Audio",
+					"sid": 502514567565972,
+					"parameters": {
+						"tag": "\"bolero\"",
+						"db": "-10"
+					}
+				},
+				{
 					"id": "wait",
 					"objectClass": "System",
 					"sid": 306683592091515,
 					"parameters": {
 						"seconds": "4"
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "Cat",
+					"sid": 520726043512170,
+					"parameters": {
+						"visibility": "visible"
 					}
 				},
 				{
@@ -535,14 +620,6 @@
 					"sid": 382187539231446,
 					"parameters": {
 						"seconds": "4"
-					}
-				},
-				{
-					"id": "set-visible",
-					"objectClass": "Cat",
-					"sid": 287731343440556,
-					"parameters": {
-						"visibility": "visible"
 					}
 				},
 				{
@@ -579,9 +656,176 @@
 					"parameters": {
 						"text": "\"Ready to Play?\""
 					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "nReady",
+					"sid": 270726502620539,
+					"parameters": {
+						"visibility": "visible"
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "Ready",
+					"sid": 412952364526153,
+					"parameters": {
+						"visibility": "visible"
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "tutYes",
+					"sid": 448879600434402,
+					"parameters": {
+						"visibility": "visible"
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "tutNo",
+					"sid": 620704158219494,
+					"parameters": {
+						"visibility": "visible"
+					}
 				}
 			],
 			"sid": 191623048311461
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-object-clicked",
+					"objectClass": "Mouse",
+					"sid": 573964684783427,
+					"parameters": {
+						"mouse-button": "left",
+						"click-type": "clicked",
+						"object-clicked": "nReady"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "play",
+					"objectClass": "Audio",
+					"sid": 609550735422501,
+					"parameters": {
+						"audio-file": "click1",
+						"loop": "not-looping",
+						"volume": "0",
+						"tag-optional": "\"\""
+					}
+				},
+				{
+					"id": "stop",
+					"objectClass": "Audio",
+					"sid": 147700243381356,
+					"parameters": {
+						"tag": "\"bolero\""
+					}
+				},
+				{
+					"id": "go-to-layout",
+					"objectClass": "System",
+					"sid": 803660637408413,
+					"parameters": {
+						"layout": "Menu"
+					}
+				}
+			],
+			"sid": 524222731706870
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-object-clicked",
+					"objectClass": "Mouse",
+					"sid": 267153226565416,
+					"parameters": {
+						"mouse-button": "left",
+						"click-type": "clicked",
+						"object-clicked": "Ready"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "play",
+					"objectClass": "Audio",
+					"sid": 404607966579608,
+					"parameters": {
+						"audio-file": "click1",
+						"loop": "not-looping",
+						"volume": "0",
+						"tag-optional": "\"\""
+					}
+				},
+				{
+					"id": "stop",
+					"objectClass": "Audio",
+					"sid": 860916658513063,
+					"parameters": {
+						"tag": "\"bolero\""
+					}
+				},
+				{
+					"id": "go-to-layout",
+					"objectClass": "System",
+					"sid": 695732978672770,
+					"parameters": {
+						"layout": "G2 Game"
+					}
+				}
+			],
+			"sid": 386470066391491
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-object-clicked",
+					"objectClass": "Mouse",
+					"sid": 282023169133915,
+					"parameters": {
+						"mouse-button": "left",
+						"click-type": "clicked",
+						"object-clicked": "skipButt"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "play",
+					"objectClass": "Audio",
+					"sid": 548127244400853,
+					"parameters": {
+						"audio-file": "click1",
+						"loop": "not-looping",
+						"volume": "0",
+						"tag-optional": "\"\""
+					}
+				},
+				{
+					"id": "stop",
+					"objectClass": "Audio",
+					"sid": 156455759120249,
+					"parameters": {
+						"tag": "\"bolero\""
+					}
+				},
+				{
+					"id": "go-to-layout",
+					"objectClass": "System",
+					"sid": 690180340697557,
+					"parameters": {
+						"layout": "G2 Game"
+					}
+				}
+			],
+			"sid": 379166456278467
 		}
 	],
 	"sid": 667350150226659

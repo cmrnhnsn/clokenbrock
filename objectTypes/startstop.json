@@ -18,13 +18,13 @@
 						"originalSource": "",
 						"exportFormat": "png",
 						"exportQuality": 0.8,
-						"imageSpriteId": 2382362,
+						"imageSpriteId": 9762838,
 						"useCollisionPoly": true,
 						"duration": 1
 					}
 				],
 				"sid": 939592461370987,
-				"name": "Red",
+				"name": "null",
 				"isLooping": false,
 				"isPingPong": false,
 				"repeatCount": 1,
@@ -186,14 +186,14 @@
 			{
 				"frames": [
 					{
-						"width": 986,
-						"height": 279,
-						"originX": 0.48782961460446245,
-						"originY": 0.5017921146953405,
+						"width": 1000,
+						"height": 258,
+						"originX": 0.481,
+						"originY": 0.5426356589147286,
 						"originalSource": "",
 						"exportFormat": "png",
 						"exportQuality": 0.8,
-						"imageSpriteId": 8073180,
+						"imageSpriteId": 6341765,
 						"collisionPoly": {
 							"points": [
 								0,

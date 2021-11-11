@@ -106,17 +106,17 @@
 				{
 					"id": "set-text",
 					"objectClass": "KitchenGoal",
-					"sid": 780226003561471,
+					"sid": 850247920575393,
 					"parameters": {
-						"text": "\"You Have \" &TimerIdeal"
+						"text": "\"You can only be here for \" &TimerIdeal"
 					}
 				},
 				{
 					"id": "append-text",
 					"objectClass": "KitchenGoal",
-					"sid": 186120901060928,
+					"sid": 284204038664056,
 					"parameters": {
-						"text": "\" seconds here. Spend too much or too little time and you'll be caught ... with extreme prejudice.\" "
+						"text": "\" seconds.\" "
 					}
 				}
 			],
@@ -137,15 +137,6 @@
 				}
 			],
 			"actions": [
-				{
-					"id": "set-layer-visible",
-					"objectClass": "System",
-					"sid": 395011538332958,
-					"parameters": {
-						"layer": "2",
-						"visibility": "invisible"
-					}
-				},
 				{
 					"id": "play",
 					"objectClass": "Audio",
@@ -216,9 +207,115 @@
 					],
 					"actions": [
 						{
+							"id": "set-visible",
+							"objectClass": "KitchenGoal",
+							"sid": 510890572726497,
+							"parameters": {
+								"visibility": "invisible"
+							}
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "introCountdown",
+							"sid": 570223702632093,
+							"parameters": {
+								"visibility": "visible"
+							}
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "KitchenTask",
+							"sid": 871618532551638,
+							"parameters": {
+								"visibility": "visible"
+							}
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "KitchenStory",
+							"sid": 625337295074171,
+							"parameters": {
+								"visibility": "invisible"
+							}
+						},
+						{
+							"id": "set-animation",
+							"objectClass": "StartStop",
+							"sid": 568438569475364,
+							"parameters": {
+								"animation": "\"null\"",
+								"from": "beginning"
+							}
+						},
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 669707611356034,
+							"parameters": {
+								"seconds": "1"
+							}
+						},
+						{
+							"id": "set-text",
+							"objectClass": "introCountdown",
+							"sid": 695384196790454,
+							"parameters": {
+								"text": "\"2\""
+							}
+						},
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 477170127922806,
+							"parameters": {
+								"seconds": "1"
+							}
+						},
+						{
+							"id": "set-text",
+							"objectClass": "introCountdown",
+							"sid": 871303745026577,
+							"parameters": {
+								"text": "\"1\""
+							}
+						},
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 166489564504902,
+							"parameters": {
+								"seconds": "1"
+							}
+						},
+						{
+							"id": "set-text",
+							"objectClass": "introCountdown",
+							"sid": 763498597140729,
+							"parameters": {
+								"text": "\"Shh!\""
+							}
+						},
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 782707964220561,
+							"parameters": {
+								"seconds": "1"
+							}
+						},
+						{
+							"id": "set-layer-visible",
+							"objectClass": "System",
+							"sid": 478483791876364,
+							"parameters": {
+								"layer": "2",
+								"visibility": "invisible"
+							}
+						},
+						{
 							"id": "set-position",
 							"objectClass": "enterButtons",
-							"sid": 522580290248614,
+							"sid": 221209222691831,
 							"parameters": {
 								"x": "142",
 								"y": "120"
@@ -227,7 +324,7 @@
 						{
 							"id": "set-visible",
 							"objectClass": "enterButtons",
-							"sid": 318195452999467,
+							"sid": 948537875635382,
 							"parameters": {
 								"visibility": "visible"
 							}
@@ -238,15 +335,6 @@
 							"sid": 276901061630960,
 							"parameters": {
 								"seconds": "0.1"
-							}
-						},
-						{
-							"id": "set-animation",
-							"objectClass": "StartStop",
-							"sid": 583320931037287,
-							"parameters": {
-								"animation": "\"Exit\"",
-								"from": "beginning"
 							}
 						},
 						{
@@ -288,7 +376,19 @@
 					}
 				}
 			],
-			"actions": [],
+			"actions": [
+				{
+					"id": "play",
+					"objectClass": "Audio",
+					"sid": 260651552887401,
+					"parameters": {
+						"audio-file": "click1",
+						"loop": "not-looping",
+						"volume": "0",
+						"tag-optional": "\"\""
+					}
+				}
+			],
 			"sid": 457830042243805,
 			"children": [
 				{
@@ -297,9 +397,9 @@
 						{
 							"id": "is-animation-playing",
 							"objectClass": "StartStop",
-							"sid": 821561764479822,
+							"sid": 643841594203012,
 							"parameters": {
-								"animation": "\"Exit\""
+								"animation": "\"null\""
 							}
 						}
 					],
@@ -405,6 +505,15 @@
 										"instance-variable": "Active",
 										"value": "floor(random(1, 4))"
 									}
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Hotspot",
+									"sid": 783411659970734,
+									"parameters": {
+										"instance-variable": "shp",
+										"value": "1"
+									}
 								}
 							],
 							"sid": 267820785261126
@@ -486,6 +595,15 @@
 									"parameters": {
 										"animation": "\"blank\"",
 										"from": "beginning"
+									}
+								},
+								{
+									"id": "subtract-from-instvar",
+									"objectClass": "Hotspot",
+									"sid": 420776686246497,
+									"parameters": {
+										"instance-variable": "shp",
+										"value": "1"
 									}
 								},
 								{
@@ -605,6 +723,15 @@
 										"instance-variable": "Active",
 										"value": "floor(random(1, 4))"
 									}
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Hotspot",
+									"sid": 786291367261315,
+									"parameters": {
+										"instance-variable": "mhp",
+										"value": "1"
+									}
 								}
 							],
 							"sid": 672283086896365
@@ -695,6 +822,15 @@
 									"parameters": {
 										"animation": "\"blank\"",
 										"from": "beginning"
+									}
+								},
+								{
+									"id": "subtract-from-instvar",
+									"objectClass": "Hotspot",
+									"sid": 881949158473354,
+									"parameters": {
+										"instance-variable": "mhp",
+										"value": "1"
 									}
 								},
 								{
@@ -805,6 +941,15 @@
 										"instance-variable": "Active",
 										"value": "floor(random(1, 4))"
 									}
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Hotspot",
+									"sid": 599840747070912,
+									"parameters": {
+										"instance-variable": "fhp",
+										"value": "1"
+									}
 								}
 							],
 							"sid": 684270311227352
@@ -895,6 +1040,15 @@
 									"parameters": {
 										"animation": "\"blank\"",
 										"from": "beginning"
+									}
+								},
+								{
+									"id": "subtract-from-instvar",
+									"objectClass": "Hotspot",
+									"sid": 504567411593687,
+									"parameters": {
+										"instance-variable": "fhp",
+										"value": "1"
 									}
 								},
 								{
@@ -1053,6 +1207,15 @@
 									}
 								},
 								{
+									"id": "add-to-instvar",
+									"objectClass": "Hotspot",
+									"sid": 574831459712972,
+									"parameters": {
+										"instance-variable": "shp",
+										"value": "1"
+									}
+								},
+								{
 									"id": "set-animation",
 									"objectClass": "Hotspot",
 									"sid": 767077172150133,
@@ -1096,23 +1259,23 @@
 									}
 								},
 								{
+									"id": "add-to-instvar",
+									"objectClass": "Hotspot",
+									"sid": 268977524793246,
+									"parameters": {
+										"instance-variable": "shp",
+										"value": "1"
+									}
+								},
+								{
 									"id": "play",
 									"objectClass": "Audio",
-									"sid": 758001252689097,
+									"sid": 183061596600418,
 									"parameters": {
 										"audio-file": "badHiss",
 										"loop": "not-looping",
 										"volume": "-20",
 										"tag-optional": "\"Incorrect\""
-									}
-								},
-								{
-									"id": "subtract-from-instvar",
-									"objectClass": "Eyes",
-									"sid": 941708585214640,
-									"parameters": {
-										"instance-variable": "hp",
-										"value": "1"
 									}
 								}
 							],
@@ -1216,6 +1379,15 @@
 									}
 								},
 								{
+									"id": "add-to-instvar",
+									"objectClass": "Hotspot",
+									"sid": 477652846143925,
+									"parameters": {
+										"instance-variable": "mhp",
+										"value": "1"
+									}
+								},
+								{
 									"id": "set-animation",
 									"objectClass": "Hotspot",
 									"sid": 710028627584377,
@@ -1259,23 +1431,23 @@
 									}
 								},
 								{
+									"id": "add-to-instvar",
+									"objectClass": "Hotspot",
+									"sid": 869694559255005,
+									"parameters": {
+										"instance-variable": "mhp",
+										"value": "1"
+									}
+								},
+								{
 									"id": "play",
 									"objectClass": "Audio",
-									"sid": 212471198284458,
+									"sid": 728592718223335,
 									"parameters": {
 										"audio-file": "badHiss",
 										"loop": "not-looping",
 										"volume": "-20",
 										"tag-optional": "\"Incorrect\""
-									}
-								},
-								{
-									"id": "subtract-from-instvar",
-									"objectClass": "Eyes",
-									"sid": 100648364424982,
-									"parameters": {
-										"instance-variable": "hp",
-										"value": "1"
 									}
 								}
 							],
@@ -1379,6 +1551,15 @@
 									}
 								},
 								{
+									"id": "add-to-instvar",
+									"objectClass": "Hotspot",
+									"sid": 533545731195781,
+									"parameters": {
+										"instance-variable": "fhp",
+										"value": "1"
+									}
+								},
+								{
 									"id": "set-animation",
 									"objectClass": "Hotspot",
 									"sid": 417355985590731,
@@ -1422,23 +1603,23 @@
 									}
 								},
 								{
+									"id": "add-to-instvar",
+									"objectClass": "Hotspot",
+									"sid": 529495757266609,
+									"parameters": {
+										"instance-variable": "fhp",
+										"value": "1"
+									}
+								},
+								{
 									"id": "play",
 									"objectClass": "Audio",
-									"sid": 230567480824428,
+									"sid": 644339125675831,
 									"parameters": {
 										"audio-file": "badHiss",
 										"loop": "not-looping",
 										"volume": "-20",
 										"tag-optional": "\"Incorrect\""
-									}
-								},
-								{
-									"id": "subtract-from-instvar",
-									"objectClass": "Eyes",
-									"sid": 464996706376552,
-									"parameters": {
-										"instance-variable": "hp",
-										"value": "1"
 									}
 								}
 							],
@@ -1473,6 +1654,171 @@
 				}
 			],
 			"sid": 192555846961294
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "compare-instance-variable",
+					"objectClass": "Hotspot",
+					"sid": 383437793674788,
+					"parameters": {
+						"instance-variable": "shp",
+						"comparison": 2,
+						"value": "1"
+					}
+				},
+				{
+					"id": "pick-by-unique-id",
+					"objectClass": "Hotspot",
+					"sid": 813544983267518,
+					"parameters": {
+						"unique-id": "20"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "play",
+					"objectClass": "Audio",
+					"sid": 949616793840463,
+					"parameters": {
+						"audio-file": "Grumble",
+						"loop": "not-looping",
+						"volume": "0",
+						"tag-optional": "\"\""
+					}
+				},
+				{
+					"id": "subtract-from-instvar",
+					"objectClass": "Eyes",
+					"sid": 958755125717477,
+					"parameters": {
+						"instance-variable": "hp",
+						"value": "1"
+					}
+				},
+				{
+					"id": "set-instvar-value",
+					"objectClass": "Hotspot",
+					"sid": 330445036494393,
+					"parameters": {
+						"instance-variable": "shp",
+						"value": "1"
+					}
+				}
+			],
+			"sid": 286775379842820
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "compare-instance-variable",
+					"objectClass": "Hotspot",
+					"sid": 771451721755203,
+					"parameters": {
+						"instance-variable": "mhp",
+						"comparison": 2,
+						"value": "1"
+					}
+				},
+				{
+					"id": "pick-by-unique-id",
+					"objectClass": "Hotspot",
+					"sid": 870780999685032,
+					"parameters": {
+						"unique-id": "31"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "play",
+					"objectClass": "Audio",
+					"sid": 257442876550735,
+					"parameters": {
+						"audio-file": "Grumble",
+						"loop": "not-looping",
+						"volume": "0",
+						"tag-optional": "\"\""
+					}
+				},
+				{
+					"id": "subtract-from-instvar",
+					"objectClass": "Eyes",
+					"sid": 173416688497336,
+					"parameters": {
+						"instance-variable": "hp",
+						"value": "1"
+					}
+				},
+				{
+					"id": "set-instvar-value",
+					"objectClass": "Hotspot",
+					"sid": 441146393597402,
+					"parameters": {
+						"instance-variable": "mhp",
+						"value": "1"
+					}
+				}
+			],
+			"sid": 566370814235192
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "compare-instance-variable",
+					"objectClass": "Hotspot",
+					"sid": 536931230486800,
+					"parameters": {
+						"instance-variable": "fhp",
+						"comparison": 2,
+						"value": "1"
+					}
+				},
+				{
+					"id": "pick-by-unique-id",
+					"objectClass": "Hotspot",
+					"sid": 846287900334062,
+					"parameters": {
+						"unique-id": "32"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "play",
+					"objectClass": "Audio",
+					"sid": 941611748159047,
+					"parameters": {
+						"audio-file": "Grumble",
+						"loop": "not-looping",
+						"volume": "0",
+						"tag-optional": "\"\""
+					}
+				},
+				{
+					"id": "subtract-from-instvar",
+					"objectClass": "Eyes",
+					"sid": 376554682777584,
+					"parameters": {
+						"instance-variable": "hp",
+						"value": "1"
+					}
+				},
+				{
+					"id": "set-instvar-value",
+					"objectClass": "Hotspot",
+					"sid": 165972263730218,
+					"parameters": {
+						"instance-variable": "fhp",
+						"value": "1"
+					}
+				}
+			],
+			"sid": 974002329418484
 		},
 		{
 			"eventType": "block",

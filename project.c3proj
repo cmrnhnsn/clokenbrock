@@ -77,20 +77,12 @@
 			"TiledBackground",
 			"Mouse",
 			"Audio",
-			"Rays",
-			"enterButtons",
-			"thief",
-			"tutStory",
-			"House",
-			"Bedroom",
-			"OFfice",
-			"Kitchen2",
-			"LivingRoom"
+			"skipButt",
+			"skipText"
 		],
 		"subfolders": [
 			{
 				"items": [
-					"StartStop",
 					"grey_panel"
 				],
 				"subfolders": [],
@@ -98,10 +90,11 @@
 			},
 			{
 				"items": [
-					"devButtonsStatesDisplay",
-					"ClickScoreDisplay",
-					"TimerScoreDisplay",
-					"TotalScoreDisplay"
+					"enterButtons",
+					"nReady",
+					"Ready",
+					"blueSheet",
+					"StartStop"
 				],
 				"subfolders": [],
 				"name": "Labels"
@@ -122,7 +115,16 @@
 					"scoreTimeDiff",
 					"scoreTotalScore",
 					"endingGood",
-					"endingTimer"
+					"endingTimer",
+					"ClickScoreDisplay",
+					"devButtonsStatesDisplay",
+					"introCountdown",
+					"KitchenTask",
+					"TimerScoreDisplay",
+					"TotalScoreDisplay",
+					"tutNo",
+					"tutStory",
+					"tutYes"
 				],
 				"subfolders": [
 					{
@@ -144,7 +146,15 @@
 					"Cat",
 					"sheet_tanks",
 					"Eyes",
-					"jail"
+					"jail",
+					"Bedroom",
+					"House",
+					"Kitchen2",
+					"LivingRoom",
+					"OFfice",
+					"Rays",
+					"thief",
+					"tutTime"
 				],
 				"subfolders": [
 					{
@@ -166,13 +176,6 @@
 						],
 						"subfolders": [],
 						"name": "Game 2"
-					},
-					{
-						"items": [
-							"blueSheet"
-						],
-						"subfolders": [],
-						"name": "Menu"
 					}
 				],
 				"name": "Images"
@@ -271,6 +274,16 @@
 					"name": "Laugh.webm",
 					"type": "audio/webm; codecs=opus",
 					"sid": 779012920676413
+				},
+				{
+					"name": "Grumble.webm",
+					"type": "audio/webm; codecs=opus",
+					"sid": 515987859876263
+				},
+				{
+					"name": "boleroshort.webm",
+					"type": "audio/webm; codecs=opus",
+					"sid": 245446991829983
 				}
 			],
 			"subfolders": []
