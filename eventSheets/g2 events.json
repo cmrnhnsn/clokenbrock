@@ -349,10 +349,10 @@
 						{
 							"id": "play",
 							"objectClass": "Audio",
-							"sid": 658255985466183,
+							"sid": 375880275759581,
 							"parameters": {
 								"audio-file": "Metronome 2",
-								"loop": "not-looping",
+								"loop": "looping",
 								"volume": "-15",
 								"tag-optional": "\"music\""
 							}
@@ -1901,10 +1901,10 @@
 				{
 					"id": "set-eventvar-value",
 					"objectClass": "System",
-					"sid": 445973700055751,
+					"sid": 184473860040351,
 					"parameters": {
 						"variable": "IsActive",
-						"value": "3"
+						"value": "2"
 					}
 				},
 				{
