@@ -17,10 +17,10 @@
 		},
 		{
 			"eventType": "variable",
-			"name": "selAppliance",
+			"name": "wokeDaddy",
 			"type": "number",
 			"initialValue": "0",
-			"comment": "Selects the appliance to make noise",
+			"comment": "Indicates if the level was failed due to waking daddy",
 			"isStatic": false,
 			"isConstant": false,
 			"sid": 454014700967650
@@ -445,6 +445,61 @@
 						}
 					],
 					"sid": 579878580006157
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-animation-playing",
+							"objectClass": "StartStop",
+							"sid": 549817822538447,
+							"parameters": {
+								"animation": "\"null\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 868254454467471,
+							"parameters": {
+								"variable": "TimerEnd",
+								"value": "abs((round(Timer)))"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 693520304011841,
+							"parameters": {
+								"variable": "IsActive",
+								"value": "3"
+							}
+						},
+						{
+							"id": "wait-for-previous-actions",
+							"objectClass": "System",
+							"sid": 402678925275566
+						},
+						{
+							"id": "stop",
+							"objectClass": "Audio",
+							"sid": 352737225706251,
+							"parameters": {
+								"tag": "\"Music\""
+							}
+						},
+						{
+							"id": "go-to-layout",
+							"objectClass": "System",
+							"sid": 435700036547065,
+							"parameters": {
+								"layout": "Score"
+							}
+						}
+					],
+					"sid": 431698400213643
 				}
 			]
 		},
@@ -1923,10 +1978,20 @@
 				{
 					"id": "set-eventvar-value",
 					"objectClass": "System",
-					"sid": 982034048735760,
+					"sid": 260729086258389,
+					"disabled": true,
 					"parameters": {
 						"variable": "endState",
-						"value": "3"
+						"value": "2"
+					}
+				},
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 994933262676940,
+					"parameters": {
+						"variable": "wokeDaddy",
+						"value": "1"
 					}
 				},
 				{

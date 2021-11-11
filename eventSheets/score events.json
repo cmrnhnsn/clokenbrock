@@ -162,7 +162,34 @@
 						{
 							"id": "compare-two-values",
 							"objectClass": "System",
-							"sid": 312974059305520,
+							"sid": 217560637401604,
+							"parameters": {
+								"first-value": "TimerEnd",
+								"comparison": 3,
+								"second-value": "TimerThreshold"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 631140508921897,
+							"parameters": {
+								"variable": "endState",
+								"value": "1"
+							}
+						}
+					],
+					"sid": 905308415003238
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 739210661409408,
 							"parameters": {
 								"first-value": "TimerEnd",
 								"comparison": 4,
@@ -174,41 +201,14 @@
 						{
 							"id": "set-eventvar-value",
 							"objectClass": "System",
-							"sid": 964422746138349,
+							"sid": 733820798203929,
 							"parameters": {
 								"variable": "endState",
 								"value": "3"
 							}
 						}
 					],
-					"sid": 917620917981345
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "compare-two-values",
-							"objectClass": "System",
-							"sid": 434235985306987,
-							"parameters": {
-								"first-value": "TimerEnd",
-								"comparison": 3,
-								"second-value": "TimerThreshold"
-							}
-						}
-					],
-					"actions": [
-						{
-							"id": "set-eventvar-value",
-							"objectClass": "System",
-							"sid": 324069725299748,
-							"parameters": {
-								"variable": "endState",
-								"value": "1"
-							}
-						}
-					],
-					"sid": 431698400213643
+					"sid": 591289727259165
 				},
 				{
 					"eventType": "block",
@@ -216,11 +216,11 @@
 						{
 							"id": "compare-eventvar",
 							"objectClass": "System",
-							"sid": 847582237339295,
+							"sid": 296753677808736,
 							"parameters": {
-								"variable": "KitchenClick",
-								"comparison": 3,
-								"value": "0"
+								"variable": "wokeDaddy",
+								"comparison": 0,
+								"value": "1"
 							}
 						}
 					],
@@ -235,8 +235,7 @@
 							}
 						}
 					],
-					"sid": 506565566935059,
-					"disabled": true
+					"sid": 506565566935059
 				},
 				{
 					"eventType": "comment",
